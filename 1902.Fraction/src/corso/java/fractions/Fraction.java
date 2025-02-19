@@ -49,18 +49,26 @@ public class Fraction {
 	}
 
 	public String asString() {
-		String result = "";
+//		String result = "";
+//		if (signum < 0)
+//			result = result + "-";
+//		result = result + numerator;
+//		if (denominator != 1) {
+//			result = result + "/" + denominator;
+//		}
+		StringBuilder result = new StringBuilder();
 		if (signum < 0)
-			result = result + "-";
-		result = result + numerator;
+			result.append('-');
+		result.append(numerator);
 		if (denominator != 1) {
-			result = result + "/" + denominator;
+			result.append("/").append(denominator);
 		}
-		return result;
+		return result.toString();
 	}
 
 	public String latex() {
-		return "\\dfrac{" + (signum * numerator) + "}{" + denominator + "}";
+//		return "\\dfrac{" + (signum * numerator) + "}{" + denominator + "}";
+		return String.format("\\dfrac{%d}{%d}", signum * numerator, denominator);
 	}
 
 	public Fraction add(Fraction other) {

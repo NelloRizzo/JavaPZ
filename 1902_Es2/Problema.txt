@@ -1,0 +1,4 @@
+Occorre gestire le informazioni relative ai contatti inseriti in una rubrica telefonica.
+Per ogni contatto occorre registrare opportunamente il nome, il cognome e il numero di telefono (solo uno).
+Un servizio si preoccuperà di gestire una rubrica con al massimo 10 contatti al suo interno,
+dandoci la possibilità di visualizzare tutti i contatti o di inserirne un nuovo.

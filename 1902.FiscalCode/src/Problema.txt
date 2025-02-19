@@ -1,0 +1,14 @@
+Occorre gestire i dati anagrafici di una persona per poter poi <calcolarne> il codice fiscale.
+
+Per calcolare il codice fiscale serve:
+Nome, Cognome, Sesso, Data di nascita e comune di nascita
+
+DatiPersonali
+	nome				string
+	cognome				string
+	sesso				????
+	data di nascita		LocalDate
+	comune di nascita	string
+	
+ServizioCodiceFiscale
+	String calcolaCodiceFiscale(DatiPersonali)
