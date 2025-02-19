@@ -1,0 +1,19 @@
+Vogliamo gestire delle informazioni che riguardano i dati anagrafici di una persona
+che possa avere [più] numeri di telefono.
+
+Cosa si intende per numero di telefono? R. una sequenza di caratteri...
+
+Cosa si intende per [dati anagrafici di una persona]?
+Mi servono [un nome], [un cognome] e [un codice fiscale]...
+
++---------------------------------+
+| DatiAnagrafici                  |
++---------------------------------+
+| nome                   STRINGA  |
+| cognome                STRINGA  |
+| codicefiscale          STRINGA  |
++---------------------------------+
+
+Cosa si intende per nome? R. il nome è una sequenza di caratteri
+Cosa si intende per cognome? R. il cognome è una sequenza di caratteri
+Cosa si intende per codice fiscale? R. il codice fiscale è una sequenza di caratteri

@@ -1,0 +1,22 @@
+Occorre implementare un sistema in cui sia possibile effettuare operazioni
+aritmetiche tra frazioni.
+
+Cosa si intende per "frazione"?
+Una frazione è caratterizzata da un segno, un numeratore e un denominatore.
+Cos'è il segno? il segno può essere + o -
+Cos'è il numeratore? il numeratore è un numero intero positivo.
+Cos'è il denominatore? il denominatore è un numero intero positivo diverso da 0.
+
++----------------+
+| Frazione       |
++----------------+
+| segno (-1, 1)  |
+| numeratore N   |
+| denominatore N |
++----------------+
+
+Come si sviluppano le operazioni tra frazioni?
+addizione = 
+sottrazione = 
+moltiplicazione =
+divisione =
