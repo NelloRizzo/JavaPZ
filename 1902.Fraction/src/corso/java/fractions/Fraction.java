@@ -5,6 +5,14 @@ public class Fraction {
 	private int numerator;
 	private int denominator;
 
+	public Fraction(int number) {
+		this(number, 1);
+	}
+
+	public Fraction(double number) {
+		this((int) (number * 10000), 10000);
+	}
+
 	public Fraction(int numerator, int denominator) {
 		this.signum = 1;
 		if (numerator < 0) {

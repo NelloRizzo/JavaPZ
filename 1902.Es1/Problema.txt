@@ -1,0 +1,3 @@
+Occorre gestire un elenco di 10 prodotti da comprare al supermercato.
+Ogni prodotto ha un nome e un prezzo.
+Nel main, una volta inizializzati i prodotti occorre calcolare il totale dei prezzi.

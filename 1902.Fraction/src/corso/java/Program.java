@@ -16,6 +16,8 @@ public class Program {
 		System.out.println(r.asString());
 		
 		System.out.println(f1.mul(r).asString());
+		
+		System.out.println(new Fraction(-1.23).asString());
 	}
 
 }
