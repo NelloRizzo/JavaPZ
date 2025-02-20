@@ -1,0 +1,4 @@
+Dei contatti potranno disporre di una serie di recapiti.
+Ogni contatto ha un nome, un cognome e un nickname.
+Ogni recapito potrà essere un numero di telefono, un indirizzo email, 
+un indirizzo postale.

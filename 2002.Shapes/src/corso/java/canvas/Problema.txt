@@ -1,0 +1,9 @@
+Voglio disegnare delle figure geometriche sul canovaccio.
+
+Cos'è una figura geometrica?
+Non saprei proprio... Sicuramente sarà posizionabile da qualche parte
+e quindi avrà un vertice o un punto di riferimento particolare,
+ma alro non posso dire...
+RISULTATO: Una figura geometrica è un elemento astratto che ha
+sicuramente un punto di riferimento per il suo posizionamento 
+in fase di disegno
