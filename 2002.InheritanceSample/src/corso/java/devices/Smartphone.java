@@ -11,7 +11,7 @@ public class Smartphone extends Device{
 
 	@Override
 	public String toString() {
-		return String.format("Smartphone[os=%s, brand()=%s, model()=%s]", os, getBrand(), getModel());
+		return String.format("Smartphone[os=%s, brand=%s, model=%s]", os, getBrand(), getModel());
 	}
 
 }
