@@ -8,6 +8,32 @@ public class Program {
 			System.out.println(a[i]);
 	}
 
+	public static float avg(Alunno[] a) {
+		float sum = 0;
+		for (int i = 0; i < a.length; ++i) {
+			sum += a[i].getVoto();
+		}
+		return sum / a.length;
+	}
+
+	public static Alunno[] bravi(Alunno[] a, float voto) {
+		int counter = 0;
+		for (var i = 0; i < a.length; ++i) {
+			if (a[i].getVoto() >= voto) {
+				counter++;
+			}
+		}
+		var result = new Alunno[counter];
+		var appoggio = 0;
+		for (var i = 0; i < a.length; ++i) {
+			if (a[i].getVoto() >= voto) {
+				result[appoggio] = a[i];
+				appoggio++;
+			}
+		}
+		return result;
+	}
+
 	public static void main(String[] args) {
 		// Dati dei voti conseguiti da alunni, individuare
 		// il voto massimo,
@@ -27,6 +53,10 @@ public class Program {
 		}
 		System.out.println("Alunni:");
 		print(alunni);
+		float m = avg(alunni);
+		System.out.printf("Media dei voti: %.2f%n", m);
+		System.out.println("Alunno con voto superiore alla media");
+		print(bravi(alunni, m));
 	}
 
 }
