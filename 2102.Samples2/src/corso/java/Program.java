@@ -29,6 +29,19 @@ public class Program {
 		return counter;
 	}
 
+	static String[] list(int[] v, String[] n, int voto) {
+		var c = count(v, voto);
+		var result = new String[c];
+		var a = 0;
+		for (var i = 0; i < v.length; ++i) {
+			if (v[i] == voto) {
+				result[a] = n[i];
+				a++;
+			}
+		}
+		return result;
+	}
+
 	public static void main(String[] args) {
 		// Esistono 2 array nei quali sono memorizzati
 		// i voti di n allievi e i nomi degli allievi
@@ -46,6 +59,11 @@ public class Program {
 		System.out.printf("Voto più alto: %d%n", max);
 		var alunni = count(voti, max);
 		System.out.printf("Alunni che hanno ottenuto %d: %d%n", max, alunni);
+		var bravi = list(voti, nomi, max);
+		System.out.printf("Alunni che hanno ottenuto %d:%n", max);
+		for (var i = 0; i < bravi.length; ++i) {
+			System.out.println(bravi[i]);
+		}
 	}
 
 }
