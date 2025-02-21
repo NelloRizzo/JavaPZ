@@ -30,13 +30,13 @@ public class Program {
 	}
 
 	static String[] list(int[] v, String[] n, int voto) {
-		var c = count(v, voto);
-		var result = new String[c];
-		var a = 0;
-		for (var i = 0; i < v.length; ++i) {
-			if (v[i] == voto) {
-				result[a] = n[i];
-				a++;
+		var c = count(v, voto); // conto quanti hanno ottenuto il voto
+		var result = new String[c]; // predispongo un array che li possa contenere
+		var a = 0; // mi serve un contatore per inserire nell'array le voci
+		for (var i = 0; i < v.length; ++i) { // percorro i voti
+			if (v[i] == voto) { // quando trovo il voto
+				result[a] = n[i]; // metto il nome nel risultato
+				a++; // e incremento il contatore sui risultati
 			}
 		}
 		return result;
