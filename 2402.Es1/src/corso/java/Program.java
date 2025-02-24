@@ -11,7 +11,7 @@ public class Program {
 
 	static void application(MenuService service) {
 		service.add(new Dish("Risotto alla milanese", 18, List.of("Riso", "Zafferano")));
-		service.add(new Dish("Carbonara", 15, List.of("Pasta", "Uovo", "Guanciale")));
+		service.add(new Dish("Pasta alla Carbonara", 15, List.of("Pasta", "Uovo", "Guanciale")));
 		service.add(new Dish("Pasta al sugo", 7, List.of("Pasta", "Sugo")));
 		service.add(new Drink("CocaCola", 2, 330));
 		service.add(new Drink("Vino della casa", 7, 1000));
@@ -22,6 +22,8 @@ public class Program {
 				.sorted() //
 				.forEach(i -> System.out.println(i));
 
+		System.out.println("Piatti che contengono Pasta");
+		service.getAllByNameContains("Pasta").stream().forEach(i -> System.out.println(i));
 		System.out.println("Somma di tutti i prezzi:" + //
 				service.getAll().stream() //
 						.map(i -> i.getPrice()).reduce((a, b) -> a += b));

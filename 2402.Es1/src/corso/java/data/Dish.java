@@ -21,7 +21,7 @@ public class Dish extends MenuItem {
 
 	@Override
 	public String toString() {
-		return String.format("Food(ingredients=%s, item=%s)", ingredients, super.toString());
+		return String.format("Dish(ingredients=%s, item=%s)", ingredients, super.toString());
 	}
 
 }

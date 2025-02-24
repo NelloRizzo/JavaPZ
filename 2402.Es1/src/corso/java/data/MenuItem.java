@@ -49,7 +49,7 @@ public abstract class MenuItem implements Comparable<MenuItem> {
 
 	@Override
 	public int compareTo(MenuItem o) {
-		return getClass().getName().compareTo(o.getClass().getName());
+		return this.getPrice() > o.getPrice() ? 1 : -1;
 	}
 
 }
