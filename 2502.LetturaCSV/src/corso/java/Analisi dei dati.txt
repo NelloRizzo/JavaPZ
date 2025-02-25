@@ -1,0 +1,15 @@
+Comune
+	nome
+	codice
+	capoluogo
+	codice catastale
+	Provincia
+		codice
+		Nome
+		sigla
+		Regione
+			nome
+			codice
+			Area geografica
+				nome 
+				codice
