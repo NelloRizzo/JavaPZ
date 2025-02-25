@@ -11,7 +11,7 @@ public abstract class Deck implements Iterable<Card> {
 	/**
 	 * Le carte nel mazzo.
 	 */
-	protected List<Card> cards = new ArrayList<Card>();
+	protected final List<Card> cards = new ArrayList<Card>();
 
 	/**
 	 * Iteratore sulle carte: consente di usare la classe
