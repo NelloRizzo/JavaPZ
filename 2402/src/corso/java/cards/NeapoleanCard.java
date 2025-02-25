@@ -1,5 +1,7 @@
 package corso.java.cards;
 
+import corso.java.cards.exceptions.InvalidCardValueException;
+
 public class NeapoleanCard extends Card {
 
 	/**
@@ -28,7 +30,8 @@ public class NeapoleanCard extends Card {
 	protected void setValue(int value) {
 		// occorre gestire il valore per evitare errori
 		if (value < 1 || value > 10)
-			return;
+			//throw new RuntimeException("Il valore non è valido");
+			throw new InvalidCardValueException(value);
 		super.setValue(value);
 	}
 

@@ -10,7 +10,7 @@ public abstract class Card {
 	 */
 	private int value;
 
-	public Card(int seed, int value) {
+	public Card(int seed, int value)  {
 		setSeed(seed);
 		setValue(value);
 	}
@@ -28,7 +28,7 @@ public abstract class Card {
 		this.seed = seed;
 	}
 
-	protected void setValue(int value) {
+	protected void setValue(int value)  {
 		this.value = value;
 	}
 }

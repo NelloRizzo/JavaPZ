@@ -4,7 +4,7 @@ import corso.java.cards.FrenchCard.Seeds;
 
 public class FrenchDeck extends Deck {
 
-	public FrenchDeck() {
+	public FrenchDeck()  {
 		var seeds = Seeds.values();
 		for (var s = 0; s < 4; ++s) {
 			for (var v = 1; v < 14; ++v) {

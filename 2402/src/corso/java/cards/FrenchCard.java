@@ -1,5 +1,7 @@
 package corso.java.cards;
 
+import corso.java.cards.exceptions.InvalidCardValueException;
+
 public class FrenchCard extends Card {
 
 	public static final int JOKER_VALUE = 14;
@@ -23,10 +25,10 @@ public class FrenchCard extends Card {
 	}
 
 	@Override
-	protected void setValue(int value) {
+	protected void setValue(int value)  {
 		// occorre gestire il valore per evitare errori
 		if ((value < 1 || value > 13) && value != JOKER_VALUE)
-			return;
+			throw new InvalidCardValueException(value);
 		super.setValue(value);
 	}
 

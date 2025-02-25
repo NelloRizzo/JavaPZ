@@ -5,8 +5,9 @@ import corso.java.cards.NeapoleanCard.Seeds;
 public class NeapoleanDeck extends Deck {
 	/**
 	 * Costruisce il mazzo mettendo al suo interno le 40 carte.
+	 * @throws Exception 
 	 */
-	public NeapoleanDeck() {
+	public NeapoleanDeck()  {
 		var seeds = Seeds.values();
 		for (int s = 0; s < 4; ++s) {
 			for (int v = 1; v < 11; ++v) {
