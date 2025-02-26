@@ -1,32 +1,131 @@
 package corso.java;
 
 import java.util.Random;
-import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import corso.java.exceptions.GameEndedException;
+import lombok.Getter;
+
+/**
+ * Gestione del gioco in un contesto applicativo.
+ */
 public class GuessTheNumber {
+	private static final Logger log = LoggerFactory.getLogger(GuessTheNumber.class);
 
-	// "PENSO" ad un numero compreso tra 1 e 1000.
-	static int thinkANumber() {
-		return new Random().nextInt(1000) + 1;
+	/**
+	 * Possibili risultati ad ogni tentativo effettuato.
+	 */
+	public enum Result {
+		/**
+		 * Il numero da indovinare è più piccolo.
+		 */
+		LESS,
+		/**
+		 * Il numero da indovinare è più grande.
+		 */
+		GREATER,
+		/**
+		 * Il numero è stato indovinato.
+		 */
+		WIN
 	}
 
-	// Accetta un numero in input da tastiera.
-	static int input() {
-		System.out.print("A quale numero ho pensato? ");
-		var s = new Scanner(System.in);
-		return s.nextInt();
+	/**
+	 * Il numero da indovinare.
+	 */
+	private int target;
+	/**
+	 * I tentativi a disposizione.
+	 */
+	@Getter
+	private int attempts;
+	/**
+	 * Indica se il numero è stato indovinato.
+	 */
+	@Getter
+	private boolean win;
+	/**
+	 * Il limite massimo per il numero da indovinare.
+	 */
+	@Getter
+	private int maxTarget;
+	/**
+	 * Il numero di tentativi a disposizione.
+	 */
+	@Getter
+	private int maxAttempts;
+
+	/**
+	 * Consente di leggere il numero da indovinare solo se sono stati esauriti i
+	 * tentativi a disposizione.
+	 * 
+	 * @return il numero da indovinare o -1 se ancora si è in gioco.
+	 */
+	public int getTarget() {
+		if (attempts > 0 && !win)
+			return -1;
+		return target;
 	}
 
-	public static void main(String[] args) {
-		// Il programma "pensa" ad un numero compreso
-		// tra 1 e 1000.
-		// L'utente ha a disposizione 10 tentativi per indovinarlo
-		// sulla base dei suggerimenti che gli vengono proposti
-		// ad ogni tentativo effettuato.
-		// In particolare il programma comunica, se non è stato indovinato
-		// il numero, se il numero digitato è più grande o più piccolo
-		// del numero da indovinare.
-
+	/**
+	 * Indica una sconfitta.
+	 */
+	public boolean isLose() {
+		return attempts == 0;
 	}
 
+	/**
+	 * Costruttore di default.<br/>
+	 *
+	 * Imposta il range per il numero da indovinare tra 1 e 1000, con 10 tentativi a
+	 * disposizione.
+	 */
+	public GuessTheNumber() {
+		this(1000, 10);
+	}
+
+	/**
+	 * Costruttore.
+	 * 
+	 * @param maxTarget il massimo valore del numero da indovinare.
+	 * @param attempts  il numero di tentativi a disposizione.
+	 */
+	public GuessTheNumber(int maxTarget, int attempts) {
+		startGame(maxTarget, attempts);
+	}
+
+	/**
+	 * Inizia una nuova partita.
+	 * 
+	 * @param maxTarget il massimo valore del numero da indovinare.
+	 * @param attempts  il numero di tentativi a disposizione.
+	 */
+	public void startGame(int maxTarget, int attempts) {
+		this.maxTarget = maxTarget;
+		this.maxAttempts = attempts;
+		target = new Random().nextInt(maxTarget) + 1;
+		this.attempts = attempts;
+		win = false;
+		log.debug("{}", target);
+	}
+
+	/**
+	 * Gestisce un tentativo di indovinare.
+	 * 
+	 * @param number il tentativo effettuato.
+	 * @return il risultato del tentativo.
+	 */
+	public Result attempt(int number) {
+		if (win || attempts == 0)
+			throw new GameEndedException();
+		attempts--;
+		if (number < target)
+			return Result.GREATER;
+		if (number > target)
+			return Result.LESS;
+		win = true;
+		return Result.WIN;
+	}
 }
