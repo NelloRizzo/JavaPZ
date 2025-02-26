@@ -9,6 +9,13 @@ public class ConverterImpl implements Converter {
 	// tutte le cifre possibili
 	private static final String DIGITS = "0123456789ABCDEF";
 
+	/**
+	 * Da intero verso una base.
+	 * 
+	 * @param number numero da convertire.
+	 * @param base   base di conversione.
+	 * @return il numero convertito nella base richiesta.
+	 */
 	private String toBase(int number, int base) {
 		if (number == 0)
 			return "0";
@@ -27,6 +34,13 @@ public class ConverterImpl implements Converter {
 		return sb.toString();
 	}
 
+	/**
+	 * Da una base verso decimale.
+	 * 
+	 * @param number il numero scritto nella base specificata.
+	 * @param base   la base nella quale è scritto il numero.
+	 * @return il valore decimale del numero.
+	 */
 	private int fromBase(String number, int base) {
 		int result = 0;
 		// scorro a ritroso le cifre del numero
