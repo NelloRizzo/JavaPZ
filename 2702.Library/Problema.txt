@@ -1,0 +1,11 @@
+In una libreria sono contenuti libri e giornali.
+Un libro ha un titolo, un numero di pagine, un editore, un codice isbn,
+un anno di edizione e un insieme di autori.
+Un giornale ha un titolo, un editore, una data di uscita e una periodicità
+(quotidiano, mensile, settimanale, quindicinale).
+
+Occorre gestire l'elenco dei libri consentendo:
+l'inserimento di un libro o giornale
+la ricerca di un libro tramite il titolo
+la ricerca dei libri e giornali pubblicati da un autore
+la ricerca dei giornali sulla base della periodicità
