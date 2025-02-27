@@ -1,9 +1,10 @@
 package corso.java;
 
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import corso.java.dices.Dice;
+import corso.java.dices.LoadedDice;
 import corso.java.services.DiceShaker;
 
 public class Program {
@@ -16,7 +17,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		// dadi da mettere nel bicchiere
-		var dices = List.of(new Dice(), new Dice());
+		Collection<Dice> dices = List.of(new LoadedDice(), new Dice());
 		var shaker = new DiceShaker(dices);
 		play(shaker);
 	}
