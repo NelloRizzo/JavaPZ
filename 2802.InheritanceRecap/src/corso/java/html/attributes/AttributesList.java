@@ -24,8 +24,8 @@ public class AttributesList {
 
 	public String html() {
 		return attributes.stream() //
-				.map(a -> a.html()) //
-				.collect(Collectors.joining(" ")) //
+				.map(a -> a.html()) // stampa l'html per ogni attributo
+				.collect(Collectors.joining(" ")) // e concatena
 				.toString();
 	}
 }

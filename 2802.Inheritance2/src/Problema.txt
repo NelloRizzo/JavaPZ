@@ -1,0 +1,25 @@
+In un gioco un [cacciatore] è attaccato da diversi tipi di [mostri].
+Il gioco prevede una [griglia rettangolare di dimensioni fisse]
+e la possibilità per ogni elemento di gioco di essere posizionata
+su una cella della griglia.
+Ad ogni ciclo di gioco alcuni elementi di gioco effettuano una "mossa":
+- il cacciatore può spostarsi su, giù, a destra, a sinistra
+- i mostri possono spostarsi secondo delle proprie capacità
+Quando il cacciatore incontra un mostro usa la propria 
+[capacità di produrre danno] e riceve la capacità di produrre danno di un
+mostro.
+Se il danno subito porta a 0 il [livello di vita] del cacciatore, 
+il gioco finisce.
+Se il cacciatore uccide tutti i mostri il gioco finisce con la vittoria.
+
+Griglia di gioco
+insieme di celle con larghezza e altezza predefinite in fase di inizializzazione
+all'interno dell'insieme di celle ci sono [ELEMENTI DI GIOCO]
+
+Elemento di Gioco
+Livello di vita
+Capacità di attacco
+ha una capacità di raccontare come viene visualizzato sulla griglia
+
+Cacciatore -> Elemento di gioco
+Mostro -> Elemento di gioco
