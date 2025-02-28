@@ -35,11 +35,13 @@ public class Program {
 
 	static void gameLoop() {
 		var master = new GameMasterV1();
-		while (!master.hunterLost() && !master.hunterWon()) {
+		while (!master.hunterLose() && !master.hunterWon()) {
+			System.out.println(master.getStatus());
 			printGrid(master.grid());
 			char d = inputHunter();
 			master.hunterMove(d);
 			master.monstersMove();
+			master.evaluateStatus();
 		}
 	}
 

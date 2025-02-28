@@ -10,7 +10,11 @@ public interface GameMaster {
 
 	boolean hunterWon();
 
-	boolean hunterLost();
+	boolean hunterLose();
+	
+	void evaluateStatus();
+	
+	GameStatus getStatus();
 	
 	GameGrid grid();
 }

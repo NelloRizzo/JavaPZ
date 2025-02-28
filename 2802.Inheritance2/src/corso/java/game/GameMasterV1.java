@@ -9,7 +9,8 @@ import corso.java.entities.DirtySlime;
 import corso.java.entities.GameGrid;
 
 public class GameMasterV1 implements GameMaster {
-
+	private boolean lose;
+	private boolean won;
 	private final GameGrid gameGrid;
 	private final HunterPawn hunter = new HunterPawn(20, 2);
 	private final List<MonsterDecorator> monsters = new ArrayList<MonsterDecorator>();
@@ -92,7 +93,7 @@ public class GameMasterV1 implements GameMaster {
 		for (var monster : monsters) {
 			var dx = rnd.nextInt(3) - 1; // 0 1 2 -1 => -1 0 1
 			var dy = rnd.nextInt(3) - 1;
-			
+
 			var px = monster.getColumn();
 			var py = monster.getRow();
 
@@ -108,24 +109,58 @@ public class GameMasterV1 implements GameMaster {
 			if (y >= gameGrid.getHeight())
 				y = gameGrid.getHeight() - 1;
 			placeMonster(monster, y, x);
-	}
+		}
 	}
 
 	@Override
 	public boolean hunterWon() {
-		// TODO Auto-generated method stub
-		return false;
+		return won;
 	}
 
 	@Override
-	public boolean hunterLost() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean hunterLose() {
+		return lose;
 	}
 
 	@Override
 	public GameGrid grid() {
 		return this.gameGrid;
+	}
+
+	@Override
+	public void evaluateStatus() {
+		// dobbiamo vedere se c'è collisione tra cacciatore e mostri
+		// troviamo tutti i mostri che stanno nella stessa posizione del cacciatore
+		var x = hunter.getColumn();
+		var y = hunter.getRow();
+		var a = hunter.getAttack();
+		var l = hunter.getLifeLevel();
+		var collisions = monsters.stream() //
+				.filter(m -> m.getRow() == y && m.getColumn() == x);
+		var monstersAttack = collisions.mapToInt(m -> m.getAttack()).sum();
+		l -= monstersAttack; // la vita del cacciatore è decrementata
+		hunter.setLifeLevel(l);
+		if (l <= 0) {
+			// il cacciatore ha perso
+			lose = true;
+		}
+		for (var monster : monsters.stream().filter(m -> m.getRow() == y && m.getColumn() == x).toList()) {
+			monster.setLifeLevel(monster.getLifeLevel() - a);
+			if (monster.getLifeLevel() <= 0) {
+				// devo eliminare il mostro dal gioco
+				gameGrid.getCells()[monster.getRow()][monster.getColumn()] = null;
+				monsters.remove(monster);
+			}
+		}
+		if (monsters.size() == 0) { // se non ci sono mostri
+			won = true;
+		}
+		placeHunter(hunter.getRow(), hunter.getColumn());
+	}
+
+	@Override
+	public GameStatus getStatus() {
+		return new GameStatus(hunter.getLifeLevel(), monsters.size());
 	}
 
 }
