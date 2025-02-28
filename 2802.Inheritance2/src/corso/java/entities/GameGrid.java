@@ -7,4 +7,17 @@ package corso.java.entities;
  */
 public class GameGrid {
 
+	private int width;
+	private int height;
+	private GameActor[][] cells;
+	
+	public GameGrid(int width, int height) {
+		this.width = width;
+		this.height = height;
+		
+		cells = new GameActor[height][];
+		for(int row=0; row < height; ++row) {
+			cells[row] = new GameActor[width];
+		}
+	}
 }
