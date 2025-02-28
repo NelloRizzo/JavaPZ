@@ -3,9 +3,9 @@ Il gioco prevede una [griglia rettangolare di dimensioni fisse]
 e la possibilità per ogni elemento di gioco di essere posizionata
 su una cella della griglia.
 Ad ogni ciclo di gioco alcuni elementi di gioco effettuano una "mossa":
-- il cacciatore può spostarsi su, giù, a destra, a sinistra
-- i mostri possono spostarsi secondo delle proprie capacità
-Quando il cacciatore incontra un mostro usa la propria 
+- il cacciatore può <spostarsi su, giù, a destra, a sinistra>
+- i mostri possono <spostarsi secondo delle proprie capacità>
+Quando il <cacciatore incontra un mostro> usa la propria 
 [capacità di produrre danno] e riceve la capacità di produrre danno di un
 mostro.
 Se il danno subito porta a 0 il [livello di vita] del cacciatore, 
