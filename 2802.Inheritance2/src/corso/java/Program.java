@@ -40,9 +40,12 @@ public class Program {
 			printGrid(master.grid());
 			char d = inputHunter();
 			master.hunterMove(d);
+			master.evaluateStatus();
 			master.monstersMove();
 			master.evaluateStatus();
 		}
+		System.out.println(master.getStatus());
+		printGrid(master.grid());
 	}
 
 	private static char inputHunter() {
