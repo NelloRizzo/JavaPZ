@@ -21,7 +21,7 @@ public class GameMasterV1 implements GameMaster {
 		for (int i = 0; i < 5; ++i) {
 			monsters.add(new MonsterDecorator(new DirtySlime()));
 		}
-		monsters.add(new MonsterDecorator(new DarkKnight(20, 5)));
+		monsters.add(new MonsterDecorator(new DarkKnight(10, 5)));
 		spawnMonsters();
 
 		int row = gameGrid.getHeight() / 2;
@@ -145,12 +145,14 @@ public class GameMasterV1 implements GameMaster {
 			lose = true;
 		}
 		for (var monster : monsters.stream().filter(m -> m.getRow() == y && m.getColumn() == x).toList()) {
-			monster.setLifeLevel(monster.getLifeLevel() - a);
+			var ml = monster.getLifeLevel();
+			monster.setLifeLevel(ml - a);
 			if (monster.getLifeLevel() <= 0) {
 				// devo eliminare il mostro dal gioco
 				gameGrid.getCells()[monster.getRow()][monster.getColumn()] = null;
 				monsters.remove(monster);
 			}
+			hunter.setLifeLevel(hunter.getLifeLevel() + ml);
 		}
 		if (monsters.size() == 0) { // se non ci sono mostri
 			won = true;
