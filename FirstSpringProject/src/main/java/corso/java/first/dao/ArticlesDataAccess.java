@@ -8,4 +8,6 @@ public interface ArticlesDataAccess {
 	void save(Article a);
 
 	List<Article> findAll();
+	
+	List<Article> findAllByTitleContains(String title);
 }

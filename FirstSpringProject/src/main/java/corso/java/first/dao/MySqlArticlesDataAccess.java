@@ -3,10 +3,9 @@ package corso.java.first.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.time.Instant;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -14,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import corso.java.first.runners.Article;
-import lombok.extern.apachecommons.CommonsLog;
 
 @Component
 public class MySqlArticlesDataAccess implements ArticlesDataAccess {
@@ -31,6 +29,11 @@ public class MySqlArticlesDataAccess implements ArticlesDataAccess {
 			+ "	id, title, body, author, published_at " //
 			+ "from " //
 			+ "	blog.articles";
+	private final String SELECT_FILTERED = "select " //
+			+ "	id, title, body, author, published_at " //
+			+ "from " //
+			+ "	blog.articles " //
+			+ "where title like ?";
 
 	public MySqlArticlesDataAccess() {
 		try {
@@ -48,7 +51,7 @@ public class MySqlArticlesDataAccess implements ArticlesDataAccess {
 			stmt.setString(1, a.getTitle());
 			stmt.setString(2, a.getBody());
 			stmt.setString(3, a.getAuthor());
-			stmt.setDate(4, new java.sql.Date(new Date().getTime()));
+			stmt.setTimestamp(4, Timestamp.valueOf(LocalDateTime.now()));
 			stmt.execute();
 		} catch (Exception e) {
 			log.error("Errore nel salvataggio", e);
@@ -67,7 +70,29 @@ public class MySqlArticlesDataAccess implements ArticlesDataAccess {
 								rs.getString(2), //
 								rs.getString(3), //
 								rs.getString(4), //
-								rs.getDate(5)) //
+								rs.getTimestamp(5).toLocalDateTime()) //
+				);
+			}
+		} catch (Exception e) {
+			log.error("Errore nel recupero", e);
+		}
+		return result;
+	}
+
+	@Override
+	public List<Article> findAllByTitleContains(String title) {
+		var result = new ArrayList<Article>();
+		try {
+			var stmt = connection.prepareStatement(SELECT_FILTERED);
+			stmt.setString(1, "%" + title + "%");
+			var rs = stmt.executeQuery();
+			while (rs.next()) {
+				result.add( //
+						new Article(rs.getInt(1), //
+								rs.getString(2), //
+								rs.getString(3), //
+								rs.getString(4), //
+								rs.getTimestamp(5).toLocalDateTime()) //
 				);
 			}
 		} catch (Exception e) {

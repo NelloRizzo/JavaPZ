@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import corso.java.first.FirstSpringProjectApplication;
 import corso.java.first.dao.ArticlesDataAccess;
 
 @Component
@@ -22,9 +21,12 @@ public class SampleRunner implements CommandLineRunner {
 			var a = new Article(0, "Articolo n. " + i, "Testo n. " + i, "Nello", null);
 			articles.save(a);
 		}
-		
+		log.info("Tutti gli articoli");
 		articles.findAll().stream() //
 			.forEach(article -> log.info("{}", article));
+		log.info("Tutti gli articoli che contengono 1 nel titolo");
+		articles.findAllByTitleContains("1").stream() //
+		.forEach(article -> log.info("{}", article));
 
 	}
 

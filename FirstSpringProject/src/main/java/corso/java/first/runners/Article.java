@@ -1,7 +1,6 @@
 package corso.java.first.runners;
 
-import java.util.Date;
-
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -15,5 +14,5 @@ public class Article {
 	private String title;
 	private String body;
 	private String author;
-	private Date publishedAt;
+	private LocalDateTime publishedAt;
 }
