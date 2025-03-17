@@ -4,7 +4,7 @@ import java.util.List;
 
 import corso.java.first.runners.Article;
 
-public interface ArticlesDataAccess {
+public interface ArticlesDAO {
 	void save(Article a);
 
 	List<Article> findAll();

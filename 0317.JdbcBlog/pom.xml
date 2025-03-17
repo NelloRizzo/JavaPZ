@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>corso.java</groupId>
-	<artifactId>first-spring</artifactId>
+	<artifactId>jdbc-blog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>FirstSpringProject</name>
-	<description>Primo esempio di applicazione Spring Boot.</description>
+	<name>0317.JdbcBlog</name>
+	<description>Un blog con Java JDBC</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -42,6 +42,11 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
@@ -50,16 +55,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 

@@ -10,32 +10,31 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import corso.java.first.runners.Article;
 
-@Component
-public class MySqlArticlesDataAccess implements ArticlesDataAccess {
-	private final Logger log = LoggerFactory.getLogger(MySqlArticlesDataAccess.class);
-	private final String URL = "jdbc:mysql://localhost:3306/blog";
-	private final String USER = "root";
-	private final String PASSWORD = "";
+public class PostgreSqlArticlesDAO implements ArticlesDAO {
+	private final Logger log = LoggerFactory.getLogger(PostgreSqlArticlesDAO.class);
+	private final String URL = "jdbc:postgresql://localhost:5432/postgres";
+	private final String USER = "postgres";
+	private final String PASSWORD = "postgres";
 	private Connection connection;
 
 	private final String INSERT = //
-			"insert into blog.articles(title, body, author, published_at) " //
+			"insert into articles(title, body, author, published_at) " //
 					+ "values (?,?,?,?)";
 	private final String SELECT = "select " //
 			+ "	id, title, body, author, published_at " //
 			+ "from " //
-			+ "	blog.articles";
+			+ "	articles";
 	private final String SELECT_FILTERED = "select " //
 			+ "	id, title, body, author, published_at " //
 			+ "from " //
-			+ "	blog.articles " //
+			+ "	articles " //
 			+ "where title like ?";
 
-	public MySqlArticlesDataAccess() {
+	public PostgreSqlArticlesDAO() {
+		log.info("Sto usando PostgreSQL");
 		try {
 			connection = DriverManager.getConnection(URL, USER, PASSWORD);
 		} catch (SQLException e) {
