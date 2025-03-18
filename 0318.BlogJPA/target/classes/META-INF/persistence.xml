@@ -13,7 +13,8 @@
 			<property name="jakarta.persistence.jdbc.password" value="" />
 			<property name="hibernate.default_schema"
 				value="jpa_samples" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.show_sql" value="true" />
 		</properties>
 	</persistence-unit>
 </persistence>
