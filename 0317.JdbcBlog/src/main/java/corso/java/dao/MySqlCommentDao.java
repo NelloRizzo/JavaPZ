@@ -35,7 +35,8 @@ public class MySqlCommentDao extends DaoTemplate<Comment> implements CommentDao 
 	private static final String SELECT_BY_ARTICLE_ID = "SELECT " //
 			+ "id, body, author, article_id, published_at " //
 			+ "FROM `blog`.`comments` " //
-			+ "WHERE article_id = ? " + "ORDER BY published_at DESC";
+			+ "WHERE article_id = ? " //
+			+ "ORDER BY published_at DESC";
 
 	public MySqlCommentDao() {
 		super(URL, USERNAME, PASSWORD);
