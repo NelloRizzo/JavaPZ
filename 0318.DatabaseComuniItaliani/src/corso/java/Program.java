@@ -51,9 +51,11 @@ public class Program {
 			c.setProvince(em.find(Province.class, c.getProvince().getId()));
 			em.persist(c);
 		});
+
 		trans.commit();
 
 		var firstArea = em.find(Area.class, 1);
+		em.refresh(firstArea);
 		System.out.println(firstArea);
 		System.out.println(firstArea.getRegions().size());
 		firstArea.getRegions().forEach(System.out::println);

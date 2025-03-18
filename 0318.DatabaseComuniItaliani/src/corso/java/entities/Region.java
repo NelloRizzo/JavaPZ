@@ -3,6 +3,7 @@ package corso.java.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -28,9 +29,9 @@ public class Region {
 	private Integer id;
 	@Column(name = "denominazione", length = 80, nullable = false)
 	private String name;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Area area;
-	@OneToMany(mappedBy = "region", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "region", fetch = FetchType.EAGER)
 	@ToString.Exclude
 	private final Set<Province> provinces = new HashSet<>();
 }

@@ -1,5 +1,6 @@
 package corso.java.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -25,6 +26,6 @@ public class City {
 	private boolean capital;
 	@Column(name = "codice_catastale", length = 4, nullable = false)
 	private String cadastralCode;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Province province;
 }

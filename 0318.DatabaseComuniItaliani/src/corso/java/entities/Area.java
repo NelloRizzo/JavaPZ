@@ -27,7 +27,7 @@ public class Area {
 	private Integer id;
 	@Column(name = "denominazione", length = 50, nullable = false)
 	private String name;
-	@OneToMany(mappedBy = "area", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "area", fetch = FetchType.EAGER)
 	@ToString.Exclude
 	private final Set<Region> regions = new HashSet<Region>();
 }
