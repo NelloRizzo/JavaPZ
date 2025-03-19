@@ -28,8 +28,20 @@ public class JdbcArticlesDao implements ArticlesDao {
 	private static String SELECT_ALL_ARTICLES = //
 			"select " //
 					+ "a.id, a.title, a.content, a.published_at, " //
-					+ "u.id, u.username, u.password, u.friendly_name " // F
+					+ "u.id, u.username, u.password, u.friendly_name " // 
 					+ "from articles a join users u on a.author_id = u.id";
+	private static String SELECT_ARTICLE_BY_ID = //
+			"select " //
+					+ "a.id, a.title, a.content, a.published_at, " //
+					+ "u.id, u.username, u.password, u.friendly_name " // 
+					+ "from articles a join users u on a.author_id = u.id " //
+					+ "where a.id = ?";
+	private static String SELECT_ARTICLES_BY_TITLE = //
+			"select " //
+			+ "a.id, a.title, a.content, a.published_at, " //
+			+ "u.id, u.username, u.password, u.friendly_name " // 
+			+ "from articles a join users u on a.author_id = u.id " //
+			+ "where a.title like ?";
 
 	private static class ArticleRowMapper implements RowMapper<Article> {
 
@@ -70,14 +82,16 @@ public class JdbcArticlesDao implements ArticlesDao {
 
 	@Override
 	public Optional<Article> getArticleById(int id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		var article = jdbcTemplate.queryForObject(SELECT_ARTICLE_BY_ID, new ArticleRowMapper(), id);
+		if (article == null)
+			return Optional.empty();
+		return Optional.of(article);
 	}
 
 	@Override
 	public List<Article> getArticleByTitleContains(String title) {
-		// TODO Auto-generated method stub
-		return null;
+		return jdbcTemplate.query(SELECT_ARTICLES_BY_TITLE, //
+				new ArticleRowMapper(), String.format("%%%s%%", title));
 	}
 
 }
