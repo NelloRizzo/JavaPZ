@@ -46,7 +46,7 @@ public class MainRunner implements CommandLineRunner {
 				.build();
 		users.create(nello1);
 		users.create(nello2);
-
+		log.info("Tutti gli utenti");
 		users.findAll().forEach(u -> log.info("{}", u));
 
 		// ruoli
@@ -55,6 +55,7 @@ public class MainRunner implements CommandLineRunner {
 
 		roles.create(admin);
 		roles.create(guest);
+		log.info("Tutti i ruoli");
 		roles.findAll().forEach(r -> log.info("{}", r));
 
 		// recupero degli utenti tramite nome
@@ -68,7 +69,9 @@ public class MainRunner implements CommandLineRunner {
 		usersRoles.create(UserRole.builder().withRole(admin).withUser(nello1).build());
 		usersRoles.create(UserRole.builder().withRole(admin).withUser(nello2).build());
 		usersRoles.create(UserRole.builder().withRole(guest).withUser(nello1).build());
+		log.info("Utenti nel ruolo admin");
 		usersRoles.findAllByRoleName("admin").forEach(ur -> log.info("{}", ur));
+		log.info("Ruoli di un utente");
 		usersRoles.findAllByUserUsername("nellorizzo@live.it").forEach(ur -> log.info("{}", ur));
 
 		// proprietà
@@ -77,6 +80,7 @@ public class MainRunner implements CommandLineRunner {
 		var theme = Property.builder().withName("theme").build();
 		properties.create(language);
 		properties.create(theme);
+		log.info("Tutte le proprietà");
 		properties.findAll().forEach(p -> log.info("{}", p));
 
 		// recupero di proprietà tramite nome
@@ -101,10 +105,14 @@ public class MainRunner implements CommandLineRunner {
 				.build());
 		// recupero di tutte le proprietà con l'elenco degli utenti
 		// associati
+		log.info("Elenco delle proprietà e dei valori definiti dagli utenti associati");
 		properties.findAll().forEach( //
 				// per ogni proprietà legge le associazioni
-				p -> userProperties.findAllByPropertyName(p.getName()) //
-						.forEach(up -> log.info("{}", up)));
+				p -> {
+					log.info("{}", p);
+					userProperties.findAllByPropertyName(p.getName()) //
+							.forEach(up -> log.info("\t{}", up));
+				});
 	}
 
 }
