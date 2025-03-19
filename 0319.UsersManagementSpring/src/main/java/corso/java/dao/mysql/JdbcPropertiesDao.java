@@ -37,9 +37,8 @@ public class JdbcPropertiesDao extends JdbcBaseDao implements PropertiesDao {
 	}
 
 	@Override
-	public Property create(Property property) {
+	public void create(Property property) {
 		jdbcTemplate.update(INSERT, property.getName(), property.getDefaultValue());
-		return findByName(property.getName()).orElseThrow();
 	}
 
 	@Override

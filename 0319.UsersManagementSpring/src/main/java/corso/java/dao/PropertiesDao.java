@@ -6,7 +6,7 @@ import java.util.Optional;
 import corso.java.entities.Property;
 
 public interface PropertiesDao {
-	Property create(Property property);
+	void create(Property property);
 
 	Optional<Property> findByName(String property);
 

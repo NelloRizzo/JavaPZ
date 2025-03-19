@@ -42,9 +42,8 @@ public class JdbcUsersDao extends JdbcBaseDao implements UsersDao {
 	}
 
 	@Override
-	public User create(User user) {
+	public void create(User user) {
 		jdbcTemplate.update(REGISTER_USER, user.getUsername(), user.getPassword(), user.getFriendlyName());
-		return findByUsername(user.getUsername()).orElseThrow();
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import java.util.Optional;
 import corso.java.entities.User;
 
 public interface UsersDao {
-	User create(User user);
+	void create(User user);
 
 	Optional<User> findByUsername(String username);
 
