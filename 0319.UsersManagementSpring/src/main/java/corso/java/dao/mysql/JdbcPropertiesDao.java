@@ -15,8 +15,8 @@ import corso.java.entities.Property;
 @Component
 public class JdbcPropertiesDao extends JdbcBaseDao implements PropertiesDao {
 
-	private static final String INSERT = "INSERT INTO `usersmanagementsystem`.`properties`(name) VALUES(?)";
-	private static final String SELECT_ALL = "SELECT id, name FROM usersmanagementsystem.properties";
+	private static final String INSERT = "INSERT INTO `usersmanagementsystem`.`properties`(name, default_value) VALUES(?, ?)";
+	private static final String SELECT_ALL = "SELECT id, name, default_value FROM usersmanagementsystem.properties";
 	private static final String SELECT_BY_NAME = SELECT_ALL + " WHERE name = ?";
 
 	private static class PropertyMapper implements RowMapper<Property> {
@@ -26,6 +26,7 @@ public class JdbcPropertiesDao extends JdbcBaseDao implements PropertiesDao {
 			return Property.builder() //
 					.withId(rs.getInt(rs.findColumn("id"))) //
 					.withName(rs.getString(rs.findColumn("name"))) //
+					.withDefaultValue(rs.getString(rs.findColumn("default_value"))) //
 					.build();
 		}
 
@@ -37,7 +38,7 @@ public class JdbcPropertiesDao extends JdbcBaseDao implements PropertiesDao {
 
 	@Override
 	public Property create(Property property) {
-		jdbcTemplate.update(INSERT, property.getName());
+		jdbcTemplate.update(INSERT, property.getName(), property.getDefaultValue());
 		return findByName(property.getName()).orElseThrow();
 	}
 
@@ -59,6 +60,7 @@ public class JdbcPropertiesDao extends JdbcBaseDao implements PropertiesDao {
 		return "CREATE TABLE IF NOT EXISTS `usersmanagementsystem`.`properties`(" //
 				+ " `id` INT NOT NULL AUTO_INCREMENT," //
 				+ " `name` VARCHAR(15) NOT NULL," //
+				+ " `default_value` VARCHAR(128) NULL," //
 				+ " PRIMARY KEY (`id`),"//
 				+ " UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE);";
 	}

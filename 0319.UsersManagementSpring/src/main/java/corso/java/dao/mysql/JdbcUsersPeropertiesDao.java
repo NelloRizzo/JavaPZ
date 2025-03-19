@@ -17,7 +17,7 @@ import corso.java.entities.UserProperty;
 public class JdbcUsersPeropertiesDao extends JdbcBaseDao implements UsersPropertiesDao {
 
 	private static final String SELECT_ALL = //
-			"SELECT user_id, property_id, username, password, friendly_name, name, value "
+			"SELECT user_id, property_id, username, password, friendly_name, name, value, default_value "
 					+ " FROM usersmanagementsystem.users_properties up " //
 					+ "   JOIN usersmanagementsystem.users u ON up.user_id = u.id " //
 					+ "   JOIN usersmanagementsystem.properties p ON up.property_id = p.id"; //
@@ -38,7 +38,7 @@ public class JdbcUsersPeropertiesDao extends JdbcBaseDao implements UsersPropert
 					.withProperty(Property.builder() //
 							.withId(rs.getInt(rs.findColumn("property_id"))) //
 							.withName(rs.getString(rs.findColumn("name"))) //
-							.build()) //
+							.withDefaultValue(rs.getString(rs.findColumn("default_value"))).build()) //
 					.withUser(User.builder() //
 							.withId(rs.getInt(rs.findColumn("user_id"))) //
 							.withFriendlyName(rs.getString(rs.findColumn("friendly_name"))) //

@@ -67,12 +67,13 @@ public class MainRunner implements CommandLineRunner {
 		// associazioni utenti-ruoli
 		usersRoles.create(UserRole.builder().withRole(admin).withUser(nello1).build());
 		usersRoles.create(UserRole.builder().withRole(admin).withUser(nello2).build());
-		usersRoles.create(UserRole.builder().withRole(guest).withUser(nello2).build());
+		usersRoles.create(UserRole.builder().withRole(guest).withUser(nello1).build());
 		usersRoles.findAllByRoleName("admin").forEach(ur -> log.info("{}", ur));
 		usersRoles.findAllByUserUsername("nellorizzo@live.it").forEach(ur -> log.info("{}", ur));
 
 		// proprietà
-		var language = Property.builder().withName("language").build();
+		var language = Property.builder() //
+				.withName("language").withDefaultValue("it").build();
 		var theme = Property.builder().withName("theme").build();
 		properties.create(language);
 		properties.create(theme);
