@@ -1,0 +1,10 @@
+﻿Un sistema di gestione degli utenti prevede che un utente
+possa effettuare la propria registrazione all'applicazione
+attraverso uno username una password e un nome usato per presentarsi.
+Ogni utente condivide delle proprietà (quale, ad esempio, la lingua preferita)
+che sono gestite nella forma "proprietà" = "valore" (in tabelle a sé stanti, studiare la struttura delle tabelle).
+Inoltre gli utenti partecipano a ruoli applicativi che determinano 
+le caratteristiche degli stessi. 
+Esisterà la necessità di aggiungere ruoli applicativi durante il
+ciclo di vita dell'applicazione e quindi anche i ruoli dovranno essere
+gestiti in una tabella a parte (molti-a-molti ruoli utente)
