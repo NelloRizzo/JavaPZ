@@ -1,0 +1,25 @@
+Occorre gestire una biblioteca.
+In essa sono mantenuti libri catalogati memorizzando
+Titolo
+Autore
+Numero di pagine
+Anno di pubblicazione
+Opzionale: Categoria
+
+Gli autori hanno 
+Nome
+Cognome
+Nazionalità
+Anno di nascita
+Anno (eventuale) di morte
+
+Opzionale - Categoria
+nome
+categoria parent
+Esempio: Letteratura - Letteratura italiana - Letteratura italiana classica
+
+Occorre poter cercare i libri per
+-parte del titolo
+-nome o cognome dell'autore
+-nazionalità dell'autore
+-anno di pubblicazione (intervallo di anni)

@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import corso.java.Application;
 import corso.java.entities.Article;
 import corso.java.entities.Comment;
 import corso.java.entities.User;
@@ -72,6 +71,29 @@ public class MainRunner implements CommandLineRunner {
 			log.info("{}", a);
 			a.getComments().forEach(c -> log.info("\t{}", c));
 		});
+
+		users.findOneByUsername("Nello").ifPresentOrElse( //
+				u -> log.info("{}", u), // if present
+				() -> log.warn("Attenzione, l'utente non esiste"));
+		users.findOneByUsername("non esiste").ifPresentOrElse( //
+				u -> log.info("{}", u), // if present
+				() -> log.warn("Attenzione, l'utente non esiste"));
+		log.info("Articoli pubblicati negli ultimi 5 giorni");
+		articles.findAllByPublishedAtBetween(LocalDateTime.now().minusDays(5), LocalDateTime.now()) //
+				.forEach(a -> log.info("{}", a));
+		log.info("Articoli pubblicati dopo il 16/03/2025");
+		articles.findAllByPublishedAtGreaterThan(LocalDateTime.of(2025, 03, 16, 0, 0, 0)) //
+				.forEach(a -> log.info("{}", a));
+		log.info("Articoli che contengono un 1 nel contenuto");
+		articles.findAllByContentContains("1") //
+				.forEach(a -> log.info("{}", a));
+		log.info("Articoli pubblicati da Nello Rizzo");
+		articles.findAllByAuthorUsername("Nello Rizzo").forEach(a -> log.info("{}", a));
+		log.info("Articoli pubblicati da Nello Rizzo o da un utente in cui l'email contenga 'live'");
+		articles.findAllByAuthorUsernameOrAuthorEmailContains("Nello Rizzo", "live").forEach(a -> log.info("{}", a));
+		log.info("Articoli pubblicati da Nello Rizzo dal 17 ad oggi");
+		articles.findAllByAuthorUsernameAndPublishedAtBetween("Nello Rizzo", LocalDateTime.of(2025, 3, 17, 0, 0, 0),
+				LocalDateTime.now()).forEach(a -> log.info("{}", a));
 	}
 
 }
