@@ -239,6 +239,7 @@ public class MainRunner implements CommandLineRunner {
 		var sb = new StringBuilder(c.getName());
 		if (c.getParent() == null)
 			return sb;
-		return sb.insert(0, " > ").insert(0, categoryFullName(c.getParent()));
+		return sb.insert(0, " > ") //
+				.insert(0, categoryFullName(c.getParent()));
 	}
 }

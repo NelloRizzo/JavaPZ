@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "copies")
-@Check(name = "location_copy_is_valid", constraints = "location_room IS NOT NULL OR location_shelf IS NOT NULL OR location_row IS NOT NULL or location_index IS NOT NULL")
+@Check(name = "chk_location_copy_is_valid", constraints = "location_room IS NOT NULL OR location_shelf IS NOT NULL OR location_row IS NOT NULL or location_index IS NOT NULL")
 public class BookCopy {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
