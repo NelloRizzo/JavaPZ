@@ -16,7 +16,12 @@ Anno (eventuale) di morte
 Opzionale - Categoria
 nome
 categoria parent
-Esempio: Letteratura - Letteratura italiana - Letteratura italiana classica
+Esempio: 
+	Letteratura
+		italiana
+			classici
+	Fantascienza
+		italiana
 
 Occorre poter cercare i libri per
 -parte del titolo
