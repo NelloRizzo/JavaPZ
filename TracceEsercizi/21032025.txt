@@ -2,5 +2,7 @@ In un bar si servono drink e pietanze.
 Occorre gestire gli ordini dei clienti.
 Ogni ordine contiene i dati del cliente (nome e cognome) 
 un numero una data e un insieme di prodotti.
+Per ogni prodotto ordinato è necessario specificare la quantità.
+
 Occorre poter osservare tutti gli ordini effettuati
 e tutti gli ordini evasi.
