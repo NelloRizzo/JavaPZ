@@ -1,0 +1,21 @@
+Cosa deve consentire di fare la nostra applicazione?
+
+Un utente si può <registrare> all'applicazione e, dopo aver
+<effettuato il login>, può <pubblicare un articolo>,
+<modificare> o <eliminare> un articolo scritto da lui,
+può <commentare un articolo>, può <osservare un elenco di articoli>,
+può <eliminare un commento>.
+
+Utente
+	registrazione
+	login
+	
+Articolo
+	pubblicazione
+	modifica
+	eliminazione
+	ottenimento lista
+
+Commento
+	pubblicazione
+	eliminazione

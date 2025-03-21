@@ -8,14 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import corso.java.entities.Apple;
-import corso.java.entities.Book;
-import corso.java.entities.Car;
-import corso.java.entities.CreditCardPayment;
-import corso.java.entities.Payment;
-import corso.java.entities.Product;
-import corso.java.entities.Vehicle;
+import corso.java.entities.joined.Car;
+import corso.java.entities.joined.Vehicle;
+import corso.java.entities.mappedsuperclass.ProductEntity;
+import corso.java.entities.singletable.Apple;
+import corso.java.entities.singletable.Book;
+import corso.java.entities.singletable.Product;
+import corso.java.entities.table.CreditCardPayment;
+import corso.java.entities.table.Payment;
 import corso.java.repositories.PaymentsRepository;
+import corso.java.repositories.ProductEntitiesRepositories;
 import corso.java.repositories.ProductsRepository;
 import corso.java.repositories.VehiclesRepository;
 
@@ -31,7 +33,10 @@ public class MainRunner implements CommandLineRunner {
 
 	@Autowired
 	private PaymentsRepository payments;
-	
+
+	@Autowired
+	private ProductEntitiesRepositories pe;
+
 	@Override
 	public void run(String... args) throws Exception {
 		var p = Product.builder().withName("Prodotto").withPrice(10.0).build();
@@ -50,11 +55,17 @@ public class MainRunner implements CommandLineRunner {
 			if (veh instanceof Car car)
 				log.info("{}", car);
 		});
-		
+
 		var pay = new Payment(10.0);
 		var cpay = new CreditCardPayment(20.0, "12345");
 		payments.saveAll(List.of(pay, cpay));
 		payments.findAll().forEach(i -> log.info("{}", i));
+
+		pe.save(new ProductEntity("Prodotto 1", 1.0));
+		pe.save(new ProductEntity("Prodotto 2", 2.0));
+		
+		pe.findAll().forEach(i -> log.info("{}", i));
+
 	}
 
 }

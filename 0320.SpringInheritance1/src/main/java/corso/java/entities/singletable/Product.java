@@ -1,4 +1,4 @@
-package corso.java.entities;
+package corso.java.entities.singletable;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;

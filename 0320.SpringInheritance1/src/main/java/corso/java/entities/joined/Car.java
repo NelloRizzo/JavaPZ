@@ -1,4 +1,4 @@
-package corso.java.entities;
+package corso.java.entities.joined;
 
 import jakarta.persistence.Entity;
 import lombok.Data;
