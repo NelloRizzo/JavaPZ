@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            color: red;
+        }
+
+        #paragrafo {
+            color: blue;
+        }
+
+        .sottolinea {
+            text-decoration: underline;
+        }
+
+        .verde {
+            color: green;
+        }
+
+        .grassetto {
+            font-weight: bold;
+        }
+
+        div {
+            border: 1px solid black;
+        }
+
+        div>p {
+            color: blueviolet;
+        }
+        div p.second {
+            color: darkgoldenrod;
+        }
+        ul>li{
+            list-style: none;
+            display: inline;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: .3em;
+            margin-right: .3em;
+            border-radius: 50%;
+            border-top-style: inset;
+            border-bottom-style: ridge;
+            border-color: gray;
+            border-width: 5px;
+            padding: 1em;
+            background-color: brown;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="verde">Pagina 2</h1>
+    <p id="paragrafo" class="verde grassetto">Paragrafo marcato con id.</p>
+    <p class="sottolinea verde grassetto">Paragrafo marcato con class.</p>
+    <div>
+        <p>Paragrafo interno a div</p>
+        <article class="first">
+            Contenuto interno ad un div
+            <p class="second">Contenuto ancora più interno</p>
+        </article>
+    </div>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+</body>
+
+</html>
