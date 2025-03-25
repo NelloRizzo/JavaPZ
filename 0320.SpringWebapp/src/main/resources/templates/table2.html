@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Tabellina</title>
+</head>
+<body>
+	<h1>
+		Tabellina del <span th:text="${number}"></span>
+	</h1>
+	<ul>
+		<li th:each="item : ${list}"><span th:text="${item.factor}"></span>&times;<span
+			th:text="${item.number}"></span>=<span th:text="${item.result}"></span></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tabellina</title>
+</head>
+<body>
+	<h1>
+		Tabellina del <span th:text="${number}"></span>
+	</h1>
+	<ul>
+		<li th:each="item : ${list}" th:text="${item}"></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Hello World!</title>
+</head>
+<body>
+	<h1>Hello</h1>
+	<p th:if="${language == 'en'}">Hello, <strong th:text="${name}"></strong>!</p>
+	<p th:if="${language == 'it'}">Ciao, <strong th:text="${name}"></strong>!</p>
+</body>
+</html>
