@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Semplice Calcolatore</title>
+</head>
+<body>
+	<h1>Calcolatore</h1>
+	<form action="execute" method="post" th:object="${data}">
+		<div>
+			<label th:for="first">Primo operando:</label> <input type="number"
+				th:field="*{first}">
+		</div>
+		<div>
+			<label th:for="operator">Operazione:</label> <select
+				th:field="*{operator}">
+				<option th:each="op: ${operators}" th:value="${op.symbol}"
+					th:text="${op.name}" th:selected="${op.symbol == data.operator}">
+			</select>
+		</div>
+		<div>
+			<label th:for="second">Secondo operando:</label> <input type="number"
+				th:field="*{second}">
+		</div>
+		<div>
+			<button type="submit">Calcola</button>
+		</div>
+	</form>
+</body>
+</html>
