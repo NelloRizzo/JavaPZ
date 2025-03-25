@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+body {
+	width: 90vw;
+	font-family: sans-serif;
+	margin: 0 auto;
+	font-size: .8em;
+	display: grid;
+	grid-template-areas:
+		"header header header"
+		"main main laterale"
+		"footer footer footer";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: serif;
+}
+aside{
+	grid-area: laterale;
+}
+main {
+	grid-area: main;
+}
+footer {
+	grid-area: footer;
+	text-align: center;
+}
+header {
+	grid-area: header;
+	font-size: 1.8em;
+	text-align: center;
+}
+
+header h1 {
+	color: red;
+}
+
+.contenuto {
+	padding: .5em;
+	margin: .5em;
+	background-color: white;
+	border-style: solid;
+	border-color: gray;
+	border-radius: 15%;
+	box-shadow: 2px 2px 5px black;
+}
+
+.contenitore {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-content: space-around;
+}
