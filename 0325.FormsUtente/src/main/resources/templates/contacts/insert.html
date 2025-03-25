@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Inserimento Contatto</title>
+</head>
+<body>
+	<h1>Nuovo Contatto</h1>
+	<form action="/contacts/add" method="post" th:object="${contact}">
+		<div>
+			<label for="firstName">Nome</label> <input th:field="*{firstName}">
+		</div>
+		<div>
+			<label for="lastName">Cognome</label> <input th:field="*{lastName}">
+		</div>
+		<div>
+			<label for="phoneNumber">Telefono</label> <input th:field="*{phoneNumber}">
+		</div>
+		<div>
+			<button type="submit">Invia Dati</button>
+		</div>
+	</form>
+</body>
+</html>

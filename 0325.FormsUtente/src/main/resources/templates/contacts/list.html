@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Elenco Contatti</title>
+</head>
+<body>
+	<h1>Elenco dei Contatti</h1>
+
+	<a href="/contacts/add">Aggiungi Contatto</a>
+	<p th:if="${contacts.size() == 0}">Non ci sono contatti in
+		archivio.</p>
+	<div th:if="${contacts.size() > 0}">
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Cognome</th>
+				<th>Telefono</th>
+			</tr>
+			<tr th:each="contact : ${contacts}">
+				<td th:text="${contact.firstName}"></td>
+				<td th:text="${contact.lastName}"></td>
+				<td th:text="${contact.phoneNumber}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
