@@ -1,59 +1,79 @@
-@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
+	font-family: system-ui;
+	font-weight: 300;
+	font-style: normal;
 	width: 90vw;
-	font-family: sans-serif;
-	margin: 0 auto;
-	font-size: .8em;
+
 	display: grid;
-	grid-template-areas:
-		"header header header"
-		"main main laterale"
-		"footer footer footer";
+	grid-template-areas: "header header header header header"
+		"nav main main main aside"
+		"footer footer footer footer footer";
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: serif;
+body h1 {
+	font-family: "Emblema One", sans-serif; 
+	font-size: 2em;
 }
-aside{
-	grid-area: laterale;
+aside {
+	grid-area: aside;
+	display: flex;
+	flex-direction: column;
+}
+aside h1 {
+	font-size: 1.5em;
+	text-align: center;
+}
+nav {
+	grid-area: nav;
+	display: flex;
+	flex-direction: column;
+}
+nav ul {
+	list-style-type: none;
+	padding: 0 1em;
+}
+nav ul li {
+	font-family: system-ui;
+}
+nav ul li a {
+	text-decoration: none;
+	color: #333;
+}
+nav ul li a:hover {
+	color: #666;
 }
 main {
 	grid-area: main;
+	display: flex;
+	flex-direction: column;
+}
+main h1 {
+	font-size: 2em;
+	text-align: center;
 }
 footer {
+	border-top: 1px solid #333;
+	margin-top: 1em;
+	padding-top: .5em;
 	grid-area: footer;
-	text-align: center;
+	display: flex;
+	justify-content: center;
 }
 header {
 	grid-area: header;
-	font-size: 1.8em;
+	background-color: #333;
+	color: white;
+	padding: 1em;
 	text-align: center;
 }
-
-header h1 {
-	color: red;
+h1,
+h2 {
+	font-family: 'Emblema One', sans-serif;
 }
-
-.contenuto {
-	padding: .5em;
-	margin: .5em;
-	background-color: white;
-	border-style: solid;
-	border-color: gray;
-	border-radius: 15%;
-	box-shadow: 2px 2px 5px black;
-}
-
-.contenitore {
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: space-around;
-	flex-wrap: wrap;
-	align-content: space-around;
+.inline-img {
+	display: inline-block;
+	height: 1em;
 }
