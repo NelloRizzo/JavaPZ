@@ -1,5 +1,7 @@
 package corso.java.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -26,5 +28,6 @@ public class CommentEntity extends BaseEntity {
 	@ManyToOne
 	private AuthorEntity author;
 	@ManyToOne
+	@JsonIgnore
 	private ArticleEntity article;
 }
