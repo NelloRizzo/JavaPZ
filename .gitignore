@@ -1,8 +1,3 @@
 .metadata/
 /2502.Es2/
-.sonarlint/default/known-findings-store17830875210293129364/00000000000.xd
-.sonarlint/default/known-findings-store17830875210293129364/xd.lck
-.sonarlint/default/known-findings-store17830875210293129364/blobs/version
-.sonarlint/default/xodus-local-only-issue-store15246628065311343490/00000000000.xd
-.sonarlint/default/xodus-local-only-issue-store15246628065311343490/xd.lck
-.sonarlint/default/xodus-local-only-issue-store15246628065311343490/blobs/version
+.sonarlint/
