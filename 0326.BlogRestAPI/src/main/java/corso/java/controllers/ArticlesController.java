@@ -1,7 +1,11 @@
 package corso.java.controllers;
 
+import java.net.URI;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,20 +49,29 @@ public class ArticlesController {
 //		return articles.save(a);
 //	}
 
-	@PostMapping
-	public ArticleEntity publish(@RequestBody WroteArticleModel a) {
-		var author = authors.findById(a.getAuthorId()).orElseThrow();
-		var article = ArticleEntity.builder() //
-				.withAuthor(author) //
-				.withBody(a.getBody()) //
-				.withTitle(a.getTitle()) //
-				.build();
-		return articles.save(article);
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, //
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ArticleEntity> publish(@RequestBody WroteArticleModel a) {
+		try {
+			var author = authors.findById(a.getAuthorId()).orElseThrow();
+			var article = ArticleEntity.builder() //
+					.withAuthor(author) //
+					.withBody(a.getBody()) //
+					.withTitle(a.getTitle()) //
+					.build();
+			articles.save(article);
+			return ResponseEntity.created( //
+					URI.create(String.format("/api/articles/%s", article.getId()))) //
+					.header("My-Header", "Ciao")
+					.body(article);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
 	}
 
 	@GetMapping
-	public List<ArticleEntity> list() {
-		return articles.findAll();
+	public ResponseEntity<List<ArticleEntity>> list() {
+		return ResponseEntity.ok(articles.findAll());
 	}
 
 	@GetMapping("{id}")
@@ -77,7 +90,7 @@ public class ArticlesController {
 				.withBody(c.getContent()) //
 				.build();
 		comments.save(comment);
-		
+
 		return articles.findById(articleId).orElseThrow();
 	}
 }

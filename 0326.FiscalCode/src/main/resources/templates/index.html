@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Calcolo del Codice Fiscale</title>
+</head>
+<body>
+	<h1>Calcolo del Codice Fiscale</h1>
+	<form th:object="${data}">
+		<div>
+			<label for="firstName">Nome</label> <input id="firstName" th:field="*{firstName}">
+		</div>
+		<div>
+			<label for="lastName">Cognome</label> <input id="lastName" th:field="*{lastName}">
+		</div>
+		<div>
+			<label for="birthday">Data di Nascita</label> <input id="birthday" th:field="*{birthday}">
+		</div>
+		<div>
+			<label for="gender_male">Sesso</label> 
+			<input id="gender_male" type="radio" th:value="m" th:field="*{gender}"> <label for="gender_male">M</label>
+			<input id="gender_female" type="radio" th:value="f" th:field="*{gender}"> <label for="gender_female">F</label>
+		</div>
+		<div>
+			<label for="birthCity">Città di Nascita</label> 
+			<input id="birthCity" th:field="*{birthCity}">
+		</div>
+		<div>
+			<button>Calcola Codice Fiscale</button>
+		</div>
+	</form>
+</body>
+</html>
