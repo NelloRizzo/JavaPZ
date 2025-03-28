@@ -3,3 +3,5 @@
 .sonarlint/
 .sonarlint/storage/known_findings_backup.tar.gz
 .sonarlint/storage/local_only_issue_backup.tar.gz
+.sonarlint/storage/known_findings_backup.tar.gz
+.sonarlint/storage/local_only_issue_backup.tar.gz
