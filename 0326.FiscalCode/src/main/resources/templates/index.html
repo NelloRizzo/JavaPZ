@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="it" xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="UTF-8">
 <title>Calcolo del Codice Fiscale</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/styles.css">
 </head>
+
 <body>
-	<h1>Calcolo del Codice Fiscale</h1>
-	<form action="/generate" method="post" th:object="${data}">
-		<div>
-			<label for="firstName">Nome</label> <input id="firstName"
-				th:field="*{firstName}">
+	<h1>Codice Fiscale</h1>
+	<div class="card">
+		<form action="/generate" method="post" th:object="${data}">
+			<div class="input-group">
+				<label for="firstName">Nome</label> <input id="firstName"
+					autocomplete="off" th:field="*{firstName}" required>
+			</div>
+			<div class="input-group">
+				<label for="lastName">Cognome</label> <input id="lastName"
+					autocomplete="off" th:field="*{lastName}" required>
+			</div>
+			<div class="input-group-inline">
+				<label for="birthday">Data di Nascita</label> <input id="birthday"
+					type="date" th:field="*{birthday}" required autocomplete="off">
+				<label for="gender_male">Sesso</label>
+				<div class="input-check-group">
+					<div class="input-check">
+						<input id="gender_male" type="radio" value="m"
+							th:field="*{gender}"><label for="gender_male">M</label>
+					</div>
+				</div>
+				<div class="input-check">
+					<input id="gender_female" type="radio" value="f"
+						th:field="*{gender}"> <label for="gender_female">F</label>
+				</div>
+			</div>
+			<div class="input-group">
+				<label for="birthCity">Città di Nascita</label> <input
+					id="birthCity" th:field="*{birthCity}" required autocomplete="off">
+			</div>
+			<div class="input-group">
+				<button>Calcola Codice Fiscale</button>
+			</div>
+		</form>
+		<div th:if="${fiscalCode}" class="result">
+			<h1>Codice Fiscale</h1>
+			<p th:text="${fiscalCode}"></p>
 		</div>
-		<div>
-			<label for="lastName">Cognome</label> <input id="lastName"
-				th:field="*{lastName}">
-		</div>
-		<div>
-			<label for="birthday">Data di Nascita</label> <input id="birthday"
-				th:field="*{birthday}">
-		</div>
-		<div>
-			<label for="gender_male">Sesso</label> <input id="gender_male"
-				type="radio" th:value="m" th:field="*{gender}"> <label
-				for="gender_male">M</label> <input id="gender_female" type="radio"
-				th:value="f" th:field="*{gender}"> <label
-				for="gender_female">F</label>
-		</div>
-		<div>
-			<label for="birthCity">Città di Nascita</label> <input id="birthCity"
-				th:field="*{birthCity}">
-		</div>
-		<div>
-			<button>Calcola Codice Fiscale</button>
-		</div>
-	</form>
-	<div th:if="${fiscalCode}">
-		<div>Codice Fiscale</div>
-		<div th:text="${fiscalCode}"></div>
 	</div>
 </body>
+
 </html>
