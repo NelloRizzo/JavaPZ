@@ -1,0 +1,14 @@
+Occorre implementare un sistema di traduzione di parole.
+Il server riceve una parola in lingua italiana e la traduce in una delle
+lingue supportate.
+Deve essere possibile aggiungere nuove traduzioni.
+In pratica dobbiamo implementare un dizionario di traduzione.
+Dobbiamo prevedere la gestione delle lingue supportate, con la possibilità
+di avere un elenco delle lingue e aggiungere nuove lingue.
+Inoltre dobbiamo prevedere l'aggiunta di nuove traduzioni, che potranno
+essere rappresentate da singole parole o frasi.
+Deve essere possibile aggiungere una traduzione in una lingua o modificarla.
+Deve essere possibile ottenere la traduzione di una parola in una lingua oppure
+ottenere la traduzione in tutte le lingue supportate.
+Se una parola o frase non è presente nel dizionario, alla richiesta di
+traduzione deve essere restituita una risposta di errore.
