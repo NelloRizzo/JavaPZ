@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
+
+body {
+     font-family: sans-serif;
+    /* 90% dell'area a disposizione in orizzontale */
+    width: 90vw;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Bungee Tint", 'Times New Roman', serif;
+}
+
+p {
+    color: magenta;
+}
+
+#sezione1 {
+    color: darkgray;
+}
+
+.classe1 {
+    text-decoration: line-through;
+}
+
+.classe2 {
+    font-weight: bold;
+}
+
+h1[title] {
+    text-align: center;
+}
+
+li:hover {
+    font-size: larger;
+    color: brown !important;
+}
+
+li:nth-child(2n) {
+    background-color: gray;
+}
+
+li:nth-child(2n+1) {
+    background-color: blue;
+    color: yellow;
+}
+
+ul>li>ul::before {
+    content: '\201C';
+}
+
+ul li ul::after {
+    content: "\201E";
+}
+
+@media (min-width : 800px) {
+    #sezione1 {
+        visibility: hidden;
+    }
+}
