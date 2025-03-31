@@ -60,6 +60,7 @@ ul li ul::after {
 
 @media (min-width : 800px) {
     #sezione1 {
-        visibility: hidden;
+        /*visibility: hidden;*/
+        display: none;
     }
 }

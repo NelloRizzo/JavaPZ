@@ -1,0 +1,37 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 10px;
+}
+
+.grid-item {
+    border: 1px solid black;
+    border-radius: 15%;
+    padding: 5px;
+}
+
+.grid-areas {
+    display: grid;
+    grid-template-areas:
+    "intestazione intestazione"
+    "col1 col2"
+    "col3 col4" 
+    ;
+}
+
+.int {
+    grid-area: intestazione;
+}
+.col1 {
+    grid-area: col1;
+}
+.col2 {
+    grid-area: col2;
+}
+.col3 {
+    grid-area: col3;
+}
+.col4 {
+    grid-area: col4;
+}

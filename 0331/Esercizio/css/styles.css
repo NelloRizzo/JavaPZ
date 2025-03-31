@@ -1,0 +1,102 @@
+body {
+    font-family: sans-serif;
+    font-size: .8em;
+    background-color: rgb(42, 42, 42);
+    color: white;
+}
+
+.icon {
+    height: 1em;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 1.5em;
+}
+
+.whatsapp {
+    background-image: url('../images/whatsapp.svg');
+}
+
+.teams {
+    background-image: url('../images/microsoft-teams.svg');
+}
+
+.telegram {
+    background-image: url('../images/telegram.svg');
+}
+
+.vscode {
+    background-image: url('../images/visual-studio-code.svg');
+}
+
+.vs {
+    background-image: url('../images/visual-studio.svg');
+}
+
+nav ul {
+    list-style: none;
+    padding: 0px;
+}
+
+nav ul li {
+    padding-bottom: .5em;
+}
+
+nav ul li:hover {
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-bottom-left-radius: 5px;
+}
+
+.sidebar {
+    flex-basis: 90px;
+    font-size: .4em;
+    padding-left: .5em;
+}
+
+.sidebar h1 {
+    font-size: .2em;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.card {
+    border: 1px solid gray;
+    box-shadow: 2px 2px 5px gray;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.card:hover {
+    transform: translate(-2px, 2px);
+    box-shadow: none;
+}
+
+.evidence {
+    align-self: stretch;
+    padding: 1em;
+    text-align: center;
+}
+
+.others {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.item {
+    text-align: center;
+    flex-grow: 1;
+    padding: 1em;
+}
