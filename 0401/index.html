@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM</title>
+</head>
+
+<body>
+    <h1>Benvenuto</h1>
+    <p>Questa è la mia Home Page.</p>
+
+    <p>Ecco cosa facciamo oggi:</p>
+    <ol>
+        <li>Analizziamo come il browser gestisce l'HTML.</li>
+        <li>Usiamo JavaScript per attraversare il Document Object Model.</li>
+        <li>Modifichiamo dinamicamente il contenuto della pagina.</li>
+    </ol>
+    <script>
+        document.write("Questa riga è stata aggiunta da JavaScript")
+
+        document.querySelectorAll("p").forEach((e, k, p) => {
+            console.log(e, k, p)
+            //e.innerText = e.innerText.toUpperCase()
+            e.innerHTML = "<strong>" + e.innerText + "</strong>"
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Eventi</title>
+</head>
+
+<body>
+    <div id="div1">
+        <div id="div2">
+            <button type="button">Clicca qui</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const div1 = document.getElementById("div1")
+            const div2 = document.getElementById("div2")
+            const button = document.querySelector("button")
+            div1.addEventListener('click', () => console.log("Click su div1"))
+            div2.addEventListener('click', () => console.log("Click su div2"))
+            button.addEventListener('click', () => console.log("Click su button"))
+        })
+    </script>
+</body>
+
+</html>

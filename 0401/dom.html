@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attraversamento del DOM</title>
+</head>
+
+<body>
+    <h1>Home Page</h1>
+    <h2>Benvenuto!</h2>
+    <p>Questa è la mia pagina principale.</p>
+    <ul>
+        <li>Uno</li>
+        <li>Due</li>
+        <li>Tre</li>
+    </ul>
+
+    <div>
+        Nome nodo: <span id="node-name"></span><br />
+        Tipo nodo: <span id="node-type"></span><br />
+        Valore nodo: <span id="node-value"></span><br />
+
+        <button type="button" id="parent">Parent</button>
+        <button type="button" id="first-child">Primo Figlio</button>
+        <button type="button" id="next">Successivo</button>
+        <button type="button" id="prev">Precedente</button>
+
+
+        <input id="new-item"><button type="button" id="add">Aggiungi</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let current = document;
+            function show() {
+                document.getElementById("node-name").innerText = current.nodeName
+                document.getElementById("node-type").innerText = current.nodeType
+                document.getElementById("node-value").innerText = current.nodeValue
+            }
+
+            show()
+
+            document.getElementById("parent").addEventListener('click', () => {
+                if (current.parentNode != null) current = current.parentNode
+                show()
+            })
+            document.getElementById("first-child").addEventListener('click', () => {
+                if (current.firstChild != null) current = current.firstChild
+                show()
+            })
+            document.getElementById("next").addEventListener('click', () => {
+                if (current.nextSibling != null) current = current.nextSibling
+                show()
+            })
+            document.getElementById("prev").addEventListener('click', () => {
+                if (current.previousSibling != null) current = current.previousSibling
+                show()
+            })
+
+            document.getElementById("add").addEventListener('click', () => {
+                const value = document.getElementById("new-item").value
+                const li = document.createElement("li")
+                const text = document.createTextNode(value)
+                li.appendChild(text)
+                const ul = document.querySelector("ul")
+                ul.appendChild(li)
+            })
+        })
+    </script>
+</body>
+
+</html>

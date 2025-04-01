@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabellina</title>
+</head>
+
+<body>
+    <h1>Tabelline</h1>
+    <div class="table">
+        <p>Quale tabellina vuoi? <input><button>Calcola</button></p>
+    </div>
+    <table>
+
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('input')
+                .addEventListener('focus', () => {
+                    console.log("Focus su input")
+                })
+            document.querySelector('input')
+                .addEventListener('blur', () => {
+                    console.log("Uscita da input")
+                    const numero = document.querySelector("input").value
+                    if (numero < 1 || numero > 10)
+                        document.querySelector("input").focus()
+                })
+            document.querySelector("button").addEventListener('click', () => {
+                const numero = document.querySelector("input").value
+
+                const table = document.querySelector("table")
+                table.innerHTML = ""
+                for (var i = 1; i < 11; ++i) {
+                    const tr = document.createElement('tr')
+                    tr.innerHTML = `<td>${numero}</td><td>&times;
+                        </td><td>${i}</td><td>=</td>
+                        <td>${numero * i}</td>`
+                    table.appendChild(tr)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
