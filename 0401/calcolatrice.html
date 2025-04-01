@@ -4,20 +4,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calcolatrice</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .clock {
+            display: flex;
+            flex-direction: row;
+            border-style: dotted;
+            justify-content: center;
+        }
+
+        .hours,
+        .minutes,
+        .seconds {
+            font-family: monospace;
+            font-size: xx-large;
+        }
+
+        .seconds {
+            font-size: small;
+            align-self: flex-end;
+        }
+        .hours::after {
+            content: ':';
+        }
+
+        .result {
+            text-align: center;
+            margin: 10px;
+            display: none;
+            font-weight: bold;
+            font-size: large;
+        }
+
+        button {
+            box-shadow: 3px 3px 5px gray;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        input {
+            width: 5em;
+            box-shadow: 3px 3px 5px gray;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        select {
+            box-shadow: 3px 3px 5px gray;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        input:focus {
+            outline-color: green;
+        }
+
+        select:focus {
+            outline-color: green;
+            font-size: large;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="clock">
+        <span class="hours"></span>
+        <span class="minutes"></span>
+        <span class="seconds"></span>
+    </div>
     <h1>Calcolatrice</h1>
-    <p>Primo operando: <input id="first"></p>
-    <p>Operazione: <input id="operator"></p>
-    <p>Secondo operando: <input id="second"></p>
+    <p>Primo operando: <input id="first" type="number" autocomplete="off"></p>
+    <p>Operazione:
+        <select id="operator">
+            <option value="+">&plus;</option>
+            <option value="-">&minus;</option>
+            <option value="*">&times;</option>
+            <option value="/">&div;</option>
+        </select>
+    </p>
+    <p>Secondo operando: <input id="second" type="number" autocomplete="off"></p>
     <button>Calcola</button>
-    <p id="risultato"></p>
+    <div class="result">Risultato: <span id="result"></span></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
+            const clock = () => {
+                let d = new Date()
+                document.querySelector('.hours').innerText = `00${d.getHours()}`.slice(-2)
+                document.querySelector('.minutes').innerText = `00${d.getMinutes()}`.slice(-2)
+                document.querySelector('.seconds').innerText = `00${d.getSeconds()}`.slice(-2)
+                setTimeout(() => clock(), 1000)
+            }
+            clock();
+
+            // crea al volo un array
+            [...
+                // con tutte le caselle di input
+                document.querySelectorAll('input'),
+            // e la casella di selezione 
+            document.querySelector('select')
+            ]
+                // e su ogni elemento dell'array
+                .forEach(e =>
+                    // aggiunge un listener dell'evento change
+                    e.addEventListener('change', () => {
+                        // tramite il quale nasconde il risultato
+                        document.querySelector('.result')
+                            .style.setProperty('display', 'none')
+                    }))
+            // il primo button (ed unico)
+            document.querySelector('button')
+                // gestione del click
+                .addEventListener('click', () => {
+                    // recupera gli elementi per la gestione dei dati
+                    const result = document.getElementById("result")
+                    const operator = document.getElementById('operator')
+                    const first = document.getElementById('first').value
+                    const second = document.getElementById('second').value
+                    // esegue l'operazione richiesta
+                    // e scrive il risultato come testo nel paragrafo apposito
+                    switch (operator.value) {
+                        case '+':
+                            result.innerText = 1 * first + 1 * second
+                            break;
+                        case '-':
+                            result.innerText = first - second
+                            break;
+                        case '*':
+                            result.innerText = first * second
+                            break;
+                        case '/':
+                            result.innerText = first / second
+                            break;
+                        default:
+                            result.innerText = "Error"
+                    }
+                    // mostra il risultato
+                    document.querySelector('.result').style.setProperty('display', 'block')
+                })
         })
     </script>
 </body>

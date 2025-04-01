@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@700&display=swap');
+
+body {
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.buttons>.row {
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+button {
+    background-color: rgb(56, 56, 56);
+    color: white;
+}
+
+.buttons>.row>button {
+    flex: 1 1 0;
+    margin: .1em;
+    border-radius: .5em;
+    box-shadow: 2px 2px 4px rgb(75, 75, 75);
+}
+
+.buttons>.row>button:hover {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+    outline: 1px solid azure;
+}
+
+.operator {
+    background-color: rgb(37, 37, 37);
+    color: white;
+}
+
+.display {
+    border-style: outset;
+    margin-bottom: 1em;
+    font-family: "Doto", monospace;
+    font-size: 2em;
+    padding: .2em;
+    text-align: end;
+}
+
+.calculator {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media screen and (min-width:460px) {
+    body {
+        font-size: 1.2em;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatrice</title>
+    <link rel="stylesheet" href="./css/calculator.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="display"></div>
+        <div class="buttons">
+            <div class="row">
+                <button data-op="%" class="operator">&percnt;</button>
+                <button data-op="CE" class="operator"><span>CE</span></button>
+                <button data-op="C" class="operator"><span>C</span></button>
+                <button data-op="back" class="operator">&leftarrow;</button>
+            </div>
+            <div class="row">
+                <button data-op="inv" class="operator"><sup>1</sup><span>/</span><sub>x</sub></button>
+                <button data-op="sqr" class="operator">x<sup>2</sup></button>
+                <button data-op="sqrt" class="operator">&radic;x</button>
+                <button data-op="/" class="operator">&div;</button>
+            </div>
+            <div class="row">
+                <button data-digit="7">7</button>
+                <button data-digit="8">8</button>
+                <button data-digit="9">9</button>
+                <button data-op="*" class="operator">&times;</button>
+            </div>
+            <div class="row">
+                <button data-digit="4">4</button>
+                <button data-digit="5">5</button>
+                <button data-digit="6">6</button>
+                <button data-op="-" class="operator">&minus;</button>
+            </div>
+            <div class="row">
+                <button data-digit="1">1</button>
+                <button data-digit="2">2</button>
+                <button data-digit="3">3</button>
+                <button data-op="+" class="operator">&plus;</button>
+            </div>
+            <div class="row">
+                <button data-op="opp">&plusmn;</button>
+                <button data-digit="0">0</button>
+                <button id="comma">&comma;</button>
+                <button class="operator">&equals;</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/calculator.js"></script>
+</body>
+
+</html>
