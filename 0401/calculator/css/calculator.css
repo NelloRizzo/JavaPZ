@@ -49,6 +49,7 @@ button {
     font-size: 2em;
     padding: .2em;
     text-align: end;
+    overflow-x: scroll;
 }
 
 .calculator {
