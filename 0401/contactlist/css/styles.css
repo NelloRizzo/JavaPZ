@@ -1,0 +1,30 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: .5em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: .5em;
+}
+
+li:hover {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+@media screen and (min-width: 480px) {
+    .form {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: .5em;
+    }
+}

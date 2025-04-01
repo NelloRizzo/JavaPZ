@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giochino</title>
+    <style>
+        .board {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            margin: auto;
+            padding: 0px;
+        }
+
+        .ball {
+            margin: 0px;
+            padding: 0px;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            top: 0px;
+            left: 0px;
+            background-color: green;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="board">
+        <div class="ball"></div>
+    </div>
+    <input type="range" min="5" max="500" value="10" title="Interval">
+    <span></span>
+    <script src="circle.js"></script>
+</body>
+
+</html>
