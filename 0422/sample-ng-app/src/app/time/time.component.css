@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@800&display=swap');
+
+p {
+    font-family: Doto, monospace;
+    text-align: center;
+}
