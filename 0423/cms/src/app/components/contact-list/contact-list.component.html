@@ -1,0 +1,12 @@
+<div class="app-contact-list">
+    <p *ngIf="contacts.length === 0" class="alert alert-warning">
+        Nessun contatto in archivio.
+    </p>
+    <div *ngIf="contacts.length > 0">
+            <ul>
+                <li *ngFor="let contact of contacts">
+                    <app-show-contact [contact]="contact"></app-show-contact>
+                </li>
+            </ul>
+    </div>
+</div>

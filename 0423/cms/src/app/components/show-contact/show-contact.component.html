@@ -1,0 +1,10 @@
+<div class="app-show-contact" (click)="toggleVisibility()" >
+    <div class="name">
+        <div>{{ contact?.firstName }}</div>
+        <div>{{ contact?.lastName }}</div>
+    </div>
+    <div class="addresses" [style.visibility]="showAddresses?'visible':'hidden'">
+        <div>{{ contact?.email }}</div>
+        <div>{{ contact?.phone }}</div>
+    </div>
+</div>
