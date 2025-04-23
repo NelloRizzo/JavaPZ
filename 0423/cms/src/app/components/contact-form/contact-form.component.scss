@@ -1,0 +1,38 @@
+.app-contact-form {
+    font-size: .8em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #b3a6a6;
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: stretch;
+        align-items: center;
+        margin-bottom: .5em;
+        input {
+            flex-grow: 5;
+            font-size: .8em;
+            padding: .5em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            margin-right: 1em;
+            flex-basis: 15%;
+            flex-grow: 1;
+        }
+        button {
+            font-size: .8em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: .2em;
+            flex-grow: 1;
+
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+    }
+}

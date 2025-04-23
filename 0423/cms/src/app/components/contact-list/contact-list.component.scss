@@ -1,0 +1,17 @@
+.app-contact-list {
+    ul {
+        list-style: "👤";
+    }
+
+    .alert {
+        font-size: 1.2em;
+        margin-bottom: 1em;
+        padding: 1em;
+        border-radius: 5px;
+
+        &.warning {
+            color: darkorange;
+            background-color: #e9ce78;
+        }
+    }
+}

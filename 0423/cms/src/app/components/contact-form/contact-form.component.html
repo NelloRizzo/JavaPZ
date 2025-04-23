@@ -1,0 +1,22 @@
+<div class="app-contact-form">
+    <div class="form-group">
+        <label for="firstName">Nome</label>
+        <input type="text" id="firstName" [(ngModel)]="contact.firstName" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Cognome</label>
+        <input type="text" id="lastName" [(ngModel)]="contact.lastName" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="contact.email" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="firstName">Telefono</label>
+        <input type="tel" id="phone" [(ngModel)]="contact.phone" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <button (click)="addContact()">{{buttonText}}</button>
+        <button (click)="clearContact()">Pulisci</button>
+    </div>
+</div>

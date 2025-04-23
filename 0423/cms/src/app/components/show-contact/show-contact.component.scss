@@ -1,0 +1,26 @@
+.app-show-contact {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    .name {
+        display: flex;
+        flex-direction: row;
+        gap: .2em;
+    }
+
+    .hidden {
+        display: none;
+        visibility: hidden;
+    }
+
+    .email::before {
+        content: "✉️";
+        margin-right: 0.5em;
+    }
+
+    .phone::before {
+        content: "📞";
+        margin-right: 0.5em;
+    }
+}

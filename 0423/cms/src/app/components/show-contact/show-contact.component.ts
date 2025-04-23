@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Contact } from '../../models/contact';
 
 @Component({
@@ -9,9 +9,23 @@ import { Contact } from '../../models/contact';
 })
 export class ShowContactComponent {
   @Input() contact?: Contact
-  showAddresses: boolean = true;
+  showAddresses: boolean = false;
 
+  @Output() onContactEditing: EventEmitter<Contact> = new EventEmitter<Contact>();
+  @Output() onContactDeleting: EventEmitter<Contact> = new EventEmitter<Contact>();
+  
   toggleVisibility(){
     this.showAddresses = !this.showAddresses;
+  }
+
+  editContact() {
+    if (this.contact) {
+      this.onContactEditing.emit(this.contact);
+    }
+  }
+  deleteContact() {
+    if (this.contact) {
+      this.onContactDeleting.emit(this.contact);
+    }
   }
 }

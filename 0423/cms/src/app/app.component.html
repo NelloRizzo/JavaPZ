@@ -1,7 +1,7 @@
 <div class="app-root">
   <h1>{{title}}</h1>
-  <p>Qui andrà un componente nel quale poter aggiungere un nuovo contatto.</p>
-  <app-contact-list [contacts]="contacts"></app-contact-list>  
+  <app-contact-form [contact]="editingContact" (onContactModified)="modifyContact($event)" (onContactAdded)="addContact($event)"></app-contact-form>
+  <app-contact-list (onContactDeleting)="deleteContact($event)" (onContactEditing)="editContact($event)" [contacts]="contacts"></app-contact-list>  
 </div>
 
 <router-outlet></router-outlet>

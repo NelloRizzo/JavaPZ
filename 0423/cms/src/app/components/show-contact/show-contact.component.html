@@ -1,10 +1,15 @@
-<div class="app-show-contact" (click)="toggleVisibility()" >
+<div class="app-show-contact">
     <div class="name">
         <div>{{ contact?.firstName }}</div>
         <div>{{ contact?.lastName }}</div>
+        <div class="actions">
+            <span (click)="toggleVisibility()" title="Indirizzo">🔽</span>
+            <span (click)="editContact()" title="Modifica">🖊</span>
+            <span (click)="deleteContact()" title="Elimina">&Cross;</span>
+        </div>
     </div>
-    <div class="addresses" [style.visibility]="showAddresses?'visible':'hidden'">
-        <div>{{ contact?.email }}</div>
-        <div>{{ contact?.phone }}</div>
+    <div class="addresses" [class.hidden]="!showAddresses">
+        <div class="email">{{ contact?.email }}</div>
+        <div class="phone">{{ contact?.phone }}</div>
     </div>
 </div>
