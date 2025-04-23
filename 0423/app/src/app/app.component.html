@@ -1,0 +1,9 @@
+<div class="app-root">
+  <h1>Benvenuti</h1>
+  <h2>Questa è la nostra prima app Angular</h2>
+  <app-hello name="Nello"></app-hello>
+  <app-hello [name]="username"></app-hello>
+  <app-ui-sample (incrementClicked)="handleIncrement($event)"></app-ui-sample>
+</div>
+
+<router-outlet />

@@ -1,6 +1,9 @@
 <div class="app-book-view">
-    <h2>{{book?.title}}</h2>
-    <h3>{{book?.author}}</h3>
-    <p>Pubblicato nel {{book?.year}}</p>
-    <app-rating [rating]="book?.rating"></app-rating>
+    <div [class]="bookImage"></div>
+    <div>
+        <h2>{{book?.title}}</h2>
+        <h3>{{book?.author}}</h3>
+        <p>Pubblicato nel {{book?.year}}</p>
+        <app-rating [rating]="book?.rating"></app-rating>
+    </div>
 </div>
