@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class DiceComponent {
   value?: number;
 
-  rollDice(){
+  rollDice() {
     this.value = Math.floor(Math.random() * 6) + 1;
   }
 }
