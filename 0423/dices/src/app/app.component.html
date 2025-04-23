@@ -1,6 +1,7 @@
 <div class="app-root">
   <h1>Gioco dei Dadi</h1>
-  <app-dice></app-dice>
-  <app-dice></app-dice>
-  <app-dice></app-dice>
+  <p>Totale: {{total}}</p>
+  <app-dice [diceIndex]=0 (diceValueChanged)="sumValues($event)"></app-dice>
+  <app-dice [diceIndex]=1 (diceValueChanged)="sumValues($event)"></app-dice>
+  <app-dice [diceIndex]=2 (diceValueChanged)="sumValues($event)"></app-dice>
 </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DiceComponent } from './dice/dice.component';
+import { DiceClicked, DiceComponent } from './dice/dice.component';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,11 @@ import { DiceComponent } from './dice/dice.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'dices';
+  values: number[] = [0, 0, 0];
+  get total() {
+    return this.values.reduce((a, b) => a + b, 0);
+  }
+  sumValues(diceInfo: DiceClicked) {
+    this.values[diceInfo.diceIndex] = diceInfo.value;
+  }
 }
