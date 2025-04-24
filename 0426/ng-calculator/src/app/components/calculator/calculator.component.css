@@ -9,3 +9,10 @@
     flex-direction: column;
     color: white;
 }
+
+@media screen and (min-width: 400px) {
+    :host {
+        width: 250px;
+    }
+    
+}
