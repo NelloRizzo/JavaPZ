@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-display',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './display.component.css'
 })
 export class DisplayComponent {
-  display: string = '0';
+  @Input() display: string = '0';
 }

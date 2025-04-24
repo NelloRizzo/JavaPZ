@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-digit',
@@ -8,4 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 export class DigitComponent {
   @Input() digit: number = 0;
+  @Output() onClick: EventEmitter<number> = new EventEmitter<number>();
+
+  handleClick() {
+    this.onClick.emit(this.digit);
+  }
 }

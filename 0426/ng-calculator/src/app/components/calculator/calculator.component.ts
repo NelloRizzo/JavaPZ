@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DisplayComponent } from '../display/display.component';
 import { KeyPadComponent } from '../key-pad/key-pad.component';
+import { CalculatorState, initialState } from '../../models/calculator-state';
 
 @Component({
   selector: 'app-calculator',
@@ -9,5 +10,5 @@ import { KeyPadComponent } from '../key-pad/key-pad.component';
   styleUrl: './calculator.component.css'
 })
 export class CalculatorComponent {
-
+  state: CalculatorState = initialState;
 }

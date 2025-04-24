@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-unary-operator',
@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './unary-operator.component.css'
 })
 export class UnaryOperatorComponent {
-  operator: string = 'sqrt'; // Default operator is square root
+  @Input() operator: string = 'sqrt'; // Default operator is square root
+  @Output() onClick: EventEmitter<string> = new EventEmitter<string>();
+  
+  handleClick() {
+    this.onClick.emit(this.operator);
+  }
 }

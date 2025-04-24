@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-binary-operator',
@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './binary-operator.component.css'
 })
 export class BinaryOperatorComponent {
-operator: string = '+'; // Default operator is addition
+  @Input() operator: string = '+';
+  @Output() onClick: EventEmitter<string> = new EventEmitter<string>();
+
+  handleClick() {
+    this.onClick.emit(this.operator);
+  }
 }
