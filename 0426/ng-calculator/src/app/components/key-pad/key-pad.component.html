@@ -1,13 +1,14 @@
 <div class="row">
-    <app-unary-operator operator="%">&percnt;</app-unary-operator>
-    <app-unary-operator operator="CE">CE</app-unary-operator>
-    <app-unary-operator operator="C">C</app-unary-operator>
-    <app-unary-operator operator="<="><small>⌫</small></app-unary-operator>
+    <app-binary-operator operator="%" (onClick)="handleBinary($event)">&percnt;</app-binary-operator>
+    <app-unary-operator operator="CE" (onClick)="handleUnary($event)">CE</app-unary-operator>
+    <app-unary-operator operator="C" (onClick)="handleUnary($event)">C</app-unary-operator>
+    <app-unary-operator operator="back" (onClick)="handleUnary($event)"><small>⌫</small></app-unary-operator>
 </div>
 <div class="row">
-    <app-unary-operator operator="1/x"><small>1/x</small></app-unary-operator>
-    <app-unary-operator operator="x^2"><small>x<small><sup>2</sup></small></small></app-unary-operator>
-    <app-unary-operator operator="sqrt">&radic;<small>x</small></app-unary-operator>
+    <app-unary-operator operator="1/x" (onClick)="handleUnary($event)"><small>1/x</small></app-unary-operator>
+    <app-unary-operator operator="sqr"
+        (onClick)="handleUnary($event)"><small>x<small><sup>2</sup></small></small></app-unary-operator>
+    <app-unary-operator operator="sqrt" (onClick)="handleUnary($event)">&radic;<small>x</small></app-unary-operator>
     <app-binary-operator operator="/" (onClick)="handleBinary($event)">&div;</app-binary-operator>
 </div>
 <div class="row">
@@ -29,8 +30,8 @@
     <app-binary-operator operator="+" (onClick)="handleBinary($event)">&plus;</app-binary-operator>
 </div>
 <div class="row">
-    <app-unary-operator operator="+-">&plusmn;</app-unary-operator>
+    <app-unary-operator operator="+-" (onClick)="handleUnary($event)">&plusmn;</app-unary-operator>
     <app-digit [digit]="0" (onClick)="handleDigit($event)"></app-digit>
-    <app-unary-operator operator=",">,</app-unary-operator>
+    <app-unary-operator operator="," (onClick)="handleUnary($event)">,</app-unary-operator>
     <app-binary-operator operator="=" (onClick)="handleBinary($event)">&equals;</app-binary-operator>
 </div>

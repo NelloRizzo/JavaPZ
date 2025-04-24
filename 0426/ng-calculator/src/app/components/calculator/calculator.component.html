@@ -1,4 +1,3 @@
 <app-display [display]="state.display"></app-display>
-<app-key-pad
-(binaryOperatorClicked)="handleBinary($event)" 
-(digitClicked)="handleDigit($event)"></app-key-pad>
+<app-key-pad (unaryOperatorClicked)="handleUnary($event)" (binaryOperatorClicked)="handleBinary($event)"
+    (digitClicked)="handleDigit($event)"></app-key-pad>

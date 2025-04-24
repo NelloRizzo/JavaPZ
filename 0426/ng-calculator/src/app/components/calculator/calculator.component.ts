@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DisplayComponent } from '../display/display.component';
 import { KeyPadComponent } from '../key-pad/key-pad.component';
-import { addDigit, CalculatorState, executeBinaryOperator, initialState } from '../../models/calculator-state';
+import { addDigit, CalculatorState, executeBinaryOperator, executeUnaryOperator, initialState } from '../../models/calculator-state';
 
 @Component({
   selector: 'app-calculator',
@@ -19,5 +19,8 @@ export class CalculatorComponent {
   }
   handleBinary(operator: string) {
     this.state = executeBinaryOperator(this.state, operator);
+  }
+  handleUnary(operator: string) {
+    this.state = executeUnaryOperator(this.state, operator);
   }
 }
