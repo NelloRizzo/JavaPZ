@@ -59,14 +59,17 @@ interface UnaryOperator {
 const operators: UnaryOperator[] = [
     {
         symbol: 'sqrt',
+        clearDisplay: false, // Do not clear the display after execution
         execute: (state: CalculatorState) => ({ ...state, display: String(Math.sqrt(Number(state.display))) }),
     },
     {
         symbol: 'sqr',
+        clearDisplay: false, // Do not clear the display after execution
         execute: (state: CalculatorState) => ({ ...state, display: String(Number(state.display) ** 2) }),
     },
     {
         symbol: '1/x',
+        clearDisplay: false, // Do not clear the display after execution
         execute: (state: CalculatorState) => ({ ...state, display: String(1 / Number(state.display)) }),
     },
     {
@@ -91,6 +94,10 @@ const operators: UnaryOperator[] = [
         symbol: ',',
         clearDisplay: false, // Do not clear the display after execution
         execute: (state: CalculatorState) => {
+            if (state.mustClearDisplay) {
+                state.display = ''; // Clear the display if the flag is set 
+                state.mustClearDisplay = false; // Reset the flag
+            }
             if (state.display.length === 0) {
                 state.display = '0'; // Clear the display if the flag is set
             }
@@ -105,13 +112,11 @@ const operators: UnaryOperator[] = [
 export const executeUnaryOperator = (state: CalculatorState, operator: string): CalculatorState => {
     const unaryOperator = operators.find(op => op.symbol === operator);
     if (unaryOperator) {
-        if (state.mustClearDisplay) {
-            state.display = ''; // Clear the display if the flag is set
-            state.mustClearDisplay = false; // Reset the flag
-        }
         state = unaryOperator.execute(state);
-        if (state.display.length === 0)
+        if (state.display.length === 0) {
             state.display = '0'; // Ensure display is not empty
+            state.mustClearDisplay = true; // Set the flag to clear the display for the next input
+        }
         if (unaryOperator.clearDisplay ?? true)
             state.mustClearDisplay = true; // Set the flag to clear the display for the next input
     }
