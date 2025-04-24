@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-digit',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './digit.component.css'
 })
 export class DigitComponent {
-  digit: number = 0;
+  @Input() digit: number = 0;
 }
