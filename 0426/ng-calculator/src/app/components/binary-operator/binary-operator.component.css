@@ -1,0 +1,14 @@
+p {
+    background-color: #3c3c3c;
+}
+
+p:hover {
+    background-color: #7c7c7c;
+}
+
+:host {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 25%;
+    margin: 1px;
+}

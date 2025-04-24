@@ -1,11 +1,14 @@
-.key-button {
-    border-radius: 5px;
-    padding: .5em;
+p {
     background-color: #7c7c7c;
-    user-select: none;
-    cursor: default;
 }
 
-.key-button:hover {
+p:hover {
     background-color: #3c3c3c;
+}
+
+:host {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 25%;
+    margin: 1px;
 }
