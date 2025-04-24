@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DisplayComponent } from '../display/display.component';
 import { KeyPadComponent } from '../key-pad/key-pad.component';
-import { CalculatorState, initialState } from '../../models/calculator-state';
+import { addDigit, CalculatorState, executeBinaryOperator, initialState } from '../../models/calculator-state';
 
 @Component({
   selector: 'app-calculator',
@@ -11,4 +11,13 @@ import { CalculatorState, initialState } from '../../models/calculator-state';
 })
 export class CalculatorComponent {
   state: CalculatorState = initialState;
+
+  handleDigit(digit: number) {
+    // devo cambiare lo stato in maniera da
+    // aggiungere la cifra al display
+    this.state = addDigit(this.state, digit);
+  }
+  handleBinary(operator: string) {
+    this.state = executeBinaryOperator(this.state, operator);
+  }
 }

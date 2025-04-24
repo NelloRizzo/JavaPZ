@@ -5,8 +5,10 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.5em;
 }
+
 p {
     margin: 0;
     padding: .5em;
     text-align: end;
+    overflow-x: scroll;
 }

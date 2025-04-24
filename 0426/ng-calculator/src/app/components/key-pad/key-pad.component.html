@@ -1,36 +1,36 @@
 <div class="row">
-    <app-unary-operator operator="%"></app-unary-operator>
-    <app-unary-operator operator="CE"></app-unary-operator>
-    <app-unary-operator operator="C"></app-unary-operator>
-    <app-unary-operator operator="<="></app-unary-operator>
+    <app-unary-operator operator="%">&percnt;</app-unary-operator>
+    <app-unary-operator operator="CE">CE</app-unary-operator>
+    <app-unary-operator operator="C">C</app-unary-operator>
+    <app-unary-operator operator="<="><small>⌫</small></app-unary-operator>
 </div>
 <div class="row">
-    <app-unary-operator operator="1/x"></app-unary-operator>
-    <app-unary-operator operator="x^2"></app-unary-operator>
-    <app-unary-operator operator="sqrt"></app-unary-operator>
-    <app-binary-operator operator="/"></app-binary-operator>
+    <app-unary-operator operator="1/x"><small>1/x</small></app-unary-operator>
+    <app-unary-operator operator="x^2"><small>x<small><sup>2</sup></small></small></app-unary-operator>
+    <app-unary-operator operator="sqrt">&radic;<small>x</small></app-unary-operator>
+    <app-binary-operator operator="/" (onClick)="handleBinary($event)">&div;</app-binary-operator>
 </div>
 <div class="row">
     <app-digit [digit]="7" (onClick)="handleDigit($event)"></app-digit>
     <app-digit [digit]="8" (onClick)="handleDigit($event)"></app-digit>
     <app-digit [digit]="9" (onClick)="handleDigit($event)"></app-digit>
-    <app-binary-operator operator="x"></app-binary-operator>
+    <app-binary-operator operator="*" (onClick)="handleBinary($event)">&times;</app-binary-operator>
 </div>
 <div class="row">
     <app-digit [digit]="4" (onClick)="handleDigit($event)"></app-digit>
     <app-digit [digit]="5" (onClick)="handleDigit($event)"></app-digit>
     <app-digit [digit]="6" (onClick)="handleDigit($event)"></app-digit>
-    <app-binary-operator operator="-"></app-binary-operator>
+    <app-binary-operator (onClick)="handleBinary($event)" operator="-">&minus;</app-binary-operator>
 </div>
 <div class="row">
     <app-digit [digit]="1" (onClick)="handleDigit($event)"></app-digit>
     <app-digit [digit]="2" (onClick)="handleDigit($event)"></app-digit>
     <app-digit [digit]="3" (onClick)="handleDigit($event)"></app-digit>
-    <app-binary-operator operator="+"></app-binary-operator>
+    <app-binary-operator operator="+" (onClick)="handleBinary($event)">&plus;</app-binary-operator>
 </div>
 <div class="row">
-    <app-unary-operator operator="+-"></app-unary-operator>
+    <app-unary-operator operator="+-">&plusmn;</app-unary-operator>
     <app-digit [digit]="0" (onClick)="handleDigit($event)"></app-digit>
-    <app-unary-operator operator=","></app-unary-operator>
-    <app-binary-operator operator="="></app-binary-operator>
+    <app-unary-operator operator=",">,</app-unary-operator>
+    <app-binary-operator operator="=" (onClick)="handleBinary($event)">&equals;</app-binary-operator>
 </div>

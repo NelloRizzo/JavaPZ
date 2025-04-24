@@ -21,7 +21,14 @@ export class KeyPadComponent {
   //    comunicazione dell'operatore unario sul quale si è cliccato
   @Output() unaryOperatorClicked: EventEmitter<string> = new EventEmitter<string>();
 
-  handleDigitClick(digit: number) {
+  handleDigit(digit: number) {
     this.digitClicked.emit(digit);
+  }
+
+  handleBinary(operator: string) {
+    this.binaryOperatorClicked.emit(operator);
+  }
+  handleUnary(operator: string) {
+    this.unaryOperatorClicked.emit(operator);
   }
 }
