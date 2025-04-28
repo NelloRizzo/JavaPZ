@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { LowerCasePipe, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
@@ -6,10 +6,12 @@ import { BinPipe } from './pipes/bin.pipe';
 import { HexPipe } from './pipes/hex.pipe';
 import { PadPipe } from './pipes/pad.pipe';
 import { StringBlockPipe } from './pipes/string-block.pipe';
+import { RomanPipe } from './pipes/roman.pipe';
+import { LiteralPipe } from './pipes/literal.pipe';
 
 @Component({
   selector: 'app-root',
-  imports: [NgFor, FormsModule, BinPipe, HexPipe, StringBlockPipe, PadPipe],
+  imports: [NgFor, FormsModule, BinPipe, LiteralPipe, HexPipe, RomanPipe, StringBlockPipe, PadPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
