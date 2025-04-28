@@ -1,7 +1,6 @@
-import { LowerCasePipe, NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { BinPipe } from './pipes/bin.pipe';
 import { HexPipe } from './pipes/hex.pipe';
 import { PadPipe } from './pipes/pad.pipe';
