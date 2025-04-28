@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+<div>
+  Min: <input [(ngModel)]="from" type="number" /><br>
+  Max: <input [(ngModel)]="to" type="number" />
+</div>
+<ul>
+  <li *ngFor="let number of numbers">
+    <span class="number">{{number|pad:5:'.'}}</span>
+    <span class="number bin">{{number|bin|pad:8}}</span>
+    <span class="number hex">{{number|hex|pad:4}}</span>
+  </li>
+</ul>

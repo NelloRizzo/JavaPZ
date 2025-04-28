@@ -1,0 +1,5 @@
+<h2>Bind Color</h2>
+<p>Current color: {{ color }}</p>
+<input type="color" [(ngModel)]="color" />
+<hr>
+<div [style.backgroundColor]="color" class="color-box"></div>

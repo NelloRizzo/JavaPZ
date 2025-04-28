@@ -1,0 +1,10 @@
+<h2 appHighlight>*ngFor and *ngIf</h2>
+<ol>
+    <li appHighlight *ngFor="let item of items; let i = index" [ngClass]="{'even': i % 2 === 0, 'odd': i % 2 !== 0}">
+        {{i}} - {{item | uppercase}}
+        <span *ngIf="i % 2  === 0; else odd"> - Even Position</span>
+        <ng-template #odd><span> - Odd Position</span></ng-template>
+    </li>
+</ol>
+<p>Data di oggi: {{now | date:'longDate'}}</p>
+<p>Data di oggi: {{now | date:'longTime'}}</p>

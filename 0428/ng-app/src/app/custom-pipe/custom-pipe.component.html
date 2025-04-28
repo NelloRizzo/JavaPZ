@@ -1,0 +1,18 @@
+<h1>Custom Pipe Sample</h1>
+
+<h2>Array Iniziale</h2>
+<ul>
+    <li *ngFor="let number of numbers">{{number}}</li>
+</ul>
+<h2>Array filtrato ArrayPipe</h2>
+<ul>
+    <li *ngFor="let number of numbers | array">{{number}}</li>
+</ul>
+<h2>Array filtrato con LessPipe</h2>
+<ul>
+    <li *ngFor="let number of numbers | less:6 | array">{{number}}</li>
+</ul>
+<h2>Array filtrato con RangePipe</h2>
+<ul>
+    <li *ngFor="let number of numbers | range:3:6">{{number}}</li>
+</ul>

@@ -1,0 +1,24 @@
+import { NgFor } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
+import { BinPipe } from './pipes/bin.pipe';
+import { HexPipe } from './pipes/hex.pipe';
+import { PadPipe } from './pipes/pad.pipe';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, NgFor, FormsModule, BinPipe, HexPipe, PadPipe],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'Esercizio su Pipes';
+  from: number = 0;
+  to: number = 10;
+
+  get numbers(): number[] {
+    return Array.from({ length: this.to - this.from + 1 },
+      (_, i) => i + this.from);
+  }
+}

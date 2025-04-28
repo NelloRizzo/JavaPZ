@@ -1,0 +1,22 @@
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    line-height: 100px; /* Center text vertically */
+    font-size: 20px; /* Font size for the text inside the circle */
+}
+.red {
+    background-color: red;
+    color: white;
+}
+.yellow {
+    background-color: yellow;
+    color: black;
+}
+.green {
+    background-color: green;
+    color: white;
+}
