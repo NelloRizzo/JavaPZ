@@ -5,10 +5,11 @@ import { RouterOutlet } from '@angular/router';
 import { BinPipe } from './pipes/bin.pipe';
 import { HexPipe } from './pipes/hex.pipe';
 import { PadPipe } from './pipes/pad.pipe';
+import { StringBlockPipe } from './pipes/string-block.pipe';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgFor, FormsModule, BinPipe, HexPipe, PadPipe],
+  imports: [NgFor, FormsModule, BinPipe, HexPipe, StringBlockPipe, PadPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -21,4 +22,5 @@ export class AppComponent {
     return Array.from({ length: this.to - this.from + 1 },
       (_, i) => i + this.from);
   }
+  get toSize(): number { return this.to.toString().length; }
 }

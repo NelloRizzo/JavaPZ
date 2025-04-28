@@ -3,10 +3,16 @@
     margin: 0 .5em;
 }
 .bin::after {
-    content: '₂';
+    content: ')₂';
+}
+.bin::before {
+    content: '(';
+}
+.hex::before {
+    content: '(';
 }
 .hex::after {
-    content: '₁₆';
+    content: ')₁₆';
 }
 ul {
     list-style: none;

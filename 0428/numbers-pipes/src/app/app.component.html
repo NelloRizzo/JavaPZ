@@ -5,8 +5,8 @@
 </div>
 <ul>
   <li *ngFor="let number of numbers">
-    <span class="number">{{number|pad:5:'.'}}</span>
-    <span class="number bin">{{number|bin|pad:8}}</span>
-    <span class="number hex">{{number|hex|pad:4}}</span>
+    <span class="number">{{number|pad:toSize:'.'}}</span>
+    <span class="number bin">{{number|bin|pad:8|stringBlock:4:' '}}</span>
+    <span class="number hex">{{number|hex|pad:4|stringBlock:2:' '}}</span>
   </li>
 </ul>
