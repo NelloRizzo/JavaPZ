@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class LiteralPipe implements PipeTransform {
 
-  private translate(value: number): string {
-    if (value === 0) return '';
+  private translate(value?: number): string {
+    if (!value || value === 0) return '';
     if (value < 20) return ['uno', 'due', 'tre', 'quattro', 'cinque', 'sei', 'sette', 'otto', 'nove', 'dieci',
       'undici', 'dodici', 'tredici', 'quattordici', 'quindici', 'sedici', 'diciassette', 'diciotto', 'diciannove'][value - 1];
     if (value < 100) {
