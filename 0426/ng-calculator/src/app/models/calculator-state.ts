@@ -40,6 +40,9 @@ export const executeBinaryOperator = (state: CalculatorState, operator: string):
         case '/':
             state.accumulator /= Number(state.display);
             break;
+        case '%':
+            state.accumulator = (state.accumulator * Number(state.display)) / 100;
+            break;
         default:
             state.accumulator = Number(state.display);
             break;
