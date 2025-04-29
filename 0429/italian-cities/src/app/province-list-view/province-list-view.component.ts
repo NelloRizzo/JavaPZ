@@ -27,11 +27,11 @@ export class ProvinceListViewComponent {
   }
 
   scrollRight() {
-    const container = document.querySelector('.list') as HTMLElement;
+    const container = document.querySelector('.province-list .list') as HTMLElement;
     container.scrollLeft = container.scrollLeft + 100;
   }
   scrollLeft() {
-    const container = document.querySelector('.list') as HTMLElement;
+    const container = document.querySelector('.province-list .list') as HTMLElement;
     container.scrollLeft = container.scrollLeft - 100;
   }
 
