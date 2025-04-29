@@ -2,7 +2,7 @@
 <div class="province-list">
     <div class="previous" (click)="scrollLeft()"></div>
     <div class="list">
-        <span *ngFor="let province of provinces">
+        <span *ngFor="let province of provinces" (click)="select(province)">
             {{ province.name }}
         </span>
     </div>

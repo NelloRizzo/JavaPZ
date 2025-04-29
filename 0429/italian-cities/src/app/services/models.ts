@@ -10,9 +10,18 @@ export interface Region {
     name: string;
     area: Area;
 }
-export interface Area { 
+export interface Area {
     id: number;
     name: string;
+}
+
+export interface City {
+    id: number;
+    name: string;
+    cadastralCode: string;
+    zips?: string[];
+    people: number;
+    province: Province;
 }
 
 export interface ResponseArray<T> {

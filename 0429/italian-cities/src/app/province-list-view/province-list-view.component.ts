@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ItalianCitiesService } from '../services/italian-cities.service';
 import { Province } from '../services/models';
 import { NgFor } from '@angular/common';
@@ -12,24 +12,30 @@ import { NgFor } from '@angular/common';
 export class ProvinceListViewComponent {
   title = 'Province d\'Italia';
   provinces: Province[] = [];
+
+  @Output() selectedProvinceChanged: EventEmitter<Province> = new EventEmitter<Province>();
+
   constructor(private italianCitiesService: ItalianCitiesService) { }
-  
+
   ngOnInit() {
     this.italianCitiesService.getProvinces().subscribe({
       next: response => {
         this.provinces = response.data;
-        console.log(this.provinces);
-      }, 
+      },
       error: e => console.error(e)
     });
   }
 
-  scrollRight(){
+  scrollRight() {
     const container = document.querySelector('.list') as HTMLElement;
     container.scrollLeft = container.scrollLeft + 100;
   }
-  scrollLeft(){
+  scrollLeft() {
     const container = document.querySelector('.list') as HTMLElement;
     container.scrollLeft = container.scrollLeft - 100;
+  }
+
+  select(p: Province) {
+    this.selectedProvinceChanged.emit(p);
   }
 }

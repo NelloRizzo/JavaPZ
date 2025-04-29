@@ -1,0 +1,8 @@
+<div class="city-list" *ngIf="province">
+    <h1>Provincia di {{province.name}}</h1>
+    <div class="list">
+        <a [href]='gmaps(city)' target="_blank" *ngFor="let city of cities" class="city">
+            {{ city.name }}
+        </a>
+    </div>
+</div>
