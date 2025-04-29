@@ -15,7 +15,7 @@ export class CityListViewComponent {
 
   constructor(private italianCitiesService: ItalianCitiesService) { }
 
-  gmaps(c: City) {
+  gmaps(c: City): string {
     return `https://www.google.com/maps/search/?api=1&query=${c.name},${c.province.name}`;
   }
   ngOnChanges(changes: SimpleChanges) {

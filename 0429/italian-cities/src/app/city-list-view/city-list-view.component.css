@@ -12,8 +12,8 @@ h1 {
     background-color: burlywood;
     padding: 5px;
     text-align: center;
-    width: 100%;
 }
+
 .list {
     display: flex;
     flex-direction: column;
