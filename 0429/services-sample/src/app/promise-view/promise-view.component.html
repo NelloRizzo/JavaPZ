@@ -1,0 +1,6 @@
+<div *ngIf="data; else noData">
+    <span>{{data}}</span>
+</div>
+<ng-template #noData>
+    <span>No data available</span>
+</ng-template>

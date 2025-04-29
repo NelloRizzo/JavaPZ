@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<app-promise-view></app-promise-view>
+<app-typicode></app-typicode>
+<div class="contact-view" *ngFor="let contact of contacts">
+  <h2>{{contact | contactName:'firstName'}}</h2>
+  <div class="deliveries">
+    <div class="delivery" *ngFor="let delivery of contact.deliveries">
+      <h3>{{delivery | delivery}}</h3>
+  </div>
+</div>

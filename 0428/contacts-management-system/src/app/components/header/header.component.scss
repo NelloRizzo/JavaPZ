@@ -1,0 +1,20 @@
+:host {
+    margin: 0 auto;
+    padding: 1.5em;
+    background-color: burlywood;
+    border-radius: 15%;
+    text-align: center;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    
+    h1 {
+        margin: 0;
+        font-size: 2em;
+    }
+    h2 {
+        font-variant: small-caps;
+        margin: 0;
+        font-size: 1.5em;
+    }
+}
