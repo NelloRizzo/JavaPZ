@@ -38,4 +38,11 @@ export class ProvinceListViewComponent {
   select(p: Province) {
     this.selectedProvinceChanged.emit(p);
   }
+
+  onWheel(e: WheelEvent) {
+    if (e.deltaY < 0)
+      this.scrollLeft();
+    else
+      this.scrollRight()
+  }
 }

@@ -1,8 +1,8 @@
 <h1>{{title}}</h1>
 <div class="province-list">
     <div class="previous" (click)="scrollLeft()"></div>
-    <div class="list">
-        <span *ngFor="let province of provinces" (click)="select(province)">
+    <div class="list" (wheel)="onWheel($event)">
+        <span *ngFor="let province of provinces"  (click)="select(province)">
             {{ province.name }}
         </span>
     </div>
