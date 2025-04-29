@@ -11,17 +11,17 @@ import { City } from '../services/models';
 })
 export class FavoritesCitiesComponent {
   cities: City[] = [];
-  
+
   onDragOver(event: DragEvent) {
-    event.preventDefault(); // fondamentale
+    event.preventDefault(); // questo abilita il passaggio del mouse e il drop
   }
 
   onDrop(event: DragEvent) {
     event.preventDefault();
     const json = event.dataTransfer?.getData('application/json');
     if (json) {
-      const obj: City = JSON.parse(json);
-      this.cities.unshift(obj);
+      const city: City = JSON.parse(json);
+      this.cities.unshift(city);
     }
   }
 }
