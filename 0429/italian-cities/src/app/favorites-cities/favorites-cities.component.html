@@ -1,0 +1,4 @@
+<h1>Città Favorite</h1>
+<div class="favorites" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+    <span *ngFor="let city of cities">{{city|formatCity}}</span>
+</div>
