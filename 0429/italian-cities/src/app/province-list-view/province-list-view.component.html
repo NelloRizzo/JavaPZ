@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<div class="province-list">
+    <div class="previous" (click)="scrollLeft()"></div>
+    <div class="list">
+        <span *ngFor="let province of provinces">
+            {{ province.name }}
+        </span>
+    </div>
+    <div class="next" (click)="scrollRight()"></div>
+</div>

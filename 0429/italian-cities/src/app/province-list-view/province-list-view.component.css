@@ -1,0 +1,56 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+.province-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.previous,
+.next {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.previous::before{
+    content: '<';
+    font-size: 2em;
+    color: burlywood;
+    transition: color 0.3s ease;
+}
+.next::after{
+    content: '>';
+    font-size: 2em;
+    color: burlywood;
+    transition: color 0.3s ease;
+}
+.list {
+    flex: 8;
+    display: flex;
+    flex-direction: row ;
+    overflow: hidden;
+    justify-content: space-around;
+}
+
+span {
+    align-content: center;
+    font-family: sans-serif;
+    background-color: burlywood;
+    border-radius: .5em;
+    margin: 0 .2em 0 .2em;
+    font-size: .5em;
+    text-align: center;
+    padding: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
