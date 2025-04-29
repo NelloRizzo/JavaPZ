@@ -17,6 +17,9 @@ h1 {
 .list {
     display: flex;
     flex-direction: column;
+    height: 60vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .city:hover {
