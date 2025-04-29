@@ -21,7 +21,7 @@ export class FavoritesCitiesComponent {
     const json = event.dataTransfer?.getData('application/json');
     if (json) {
       const obj: City = JSON.parse(json);
-      this.cities.push(obj);
+      this.cities.unshift(obj);
     }
   }
 }
