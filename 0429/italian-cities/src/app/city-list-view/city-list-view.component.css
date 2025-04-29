@@ -20,7 +20,8 @@ h1 {
 }
 
 .city:hover {
-    text-shadow: 2px 2px 5px #fff;
+    text-shadow: 0px 0px 2pt #000;
+    color: white;
     cursor: help;
     transition: text-shadow 0.3s ease;
     user-select: none;
