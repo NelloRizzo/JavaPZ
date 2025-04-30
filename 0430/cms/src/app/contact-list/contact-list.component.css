@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+:host>div.contact-item {
+    margin-left: 1em;
+    border-radius: 10px;
+    padding: .5em;
+}
+
+:host>div.contact-item:hover {
+    background-color: burlywood;
+}

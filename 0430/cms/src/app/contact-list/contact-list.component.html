@@ -1,4 +1,6 @@
-<div *ngFor="let contact of contacts$ | async">
+<div class="contact-item" *ngFor="let contact of contacts$ | async">
+    {{contact.id}}
     {{contact.firstName}}
     {{contact.lastName}}
+    ({{contact.nickName}})
 </div>

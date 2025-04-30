@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    margin: .5em;
+    border: 1px solid maroon;
+    border-radius: 10px;
+}
+
+:host>div {
+    padding: .5em;
+    display: flex;
+    flex-direction: row;
+}
+
+:host>div>label {
+    flex: 1;
+    align-self: center;
+}
+
+:host>div>input {
+    flex: 3;
+    padding: .5em;
+    border-radius: 5px;
+    outline-color: black;
+}
+
+:host>div>input:focus,
+:host>div>input:hover,
+:host>div>button:focus,
+:host>div>button:hover {
+    outline-color: blueviolet;
+    border-color: blueviolet;
+}
+
+:host>div>button {
+    flex: 1;
+    border-radius: 5px;
+    padding: .5em;
+}
