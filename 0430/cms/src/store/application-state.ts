@@ -5,5 +5,12 @@ export interface ApplicationState {
 }
 
 export const initialState: ApplicationState = {
-    contacts: []
+    contacts: [
+        {
+            id: 1,
+            firstName: 'Archimede',
+            lastName: 'Pitagorico',
+            addresses: []
+        }
+    ]
 }
