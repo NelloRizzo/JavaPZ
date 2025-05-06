@@ -1,0 +1,13 @@
+<span class="signum" *ngIf="fraction?.signum === -1">
+    &minus;
+</span>
+<span class="signum" *ngIf="showSignum && fraction?.signum === 1">
+    &plus;
+</span>
+<span class="numerator">
+    {{fraction?.numerator}}
+</span>
+<span class="line" *ngIf="fraction?.denominator != 1"></span>
+<span class="denominator" *ngIf="fraction?.denominator != 1">
+    {{fraction?.denominator}}
+</span>

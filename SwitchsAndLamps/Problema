@@ -1,0 +1,10 @@
+Un interruttore prevede uno stato ON e OFF.
+Ad ogni interruttore possono essere collegati dei 
+dispositivi (ad esempio delle lampadine) che
+riescono ad accendersi quando l'interruttore sta nello stato ON
+o spegnersi altrimenti.
+Una volta "collegati" i due elementi instaurano 
+una comunicazione autonoma che garantisce che il
+dispositivo si accenda quando l'interruttore si trova
+nello stato ON e si spenga quando l'interruttore al quale
+è collegato si trova nello stato OFF.
