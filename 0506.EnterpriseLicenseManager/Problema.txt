@@ -1,0 +1,20 @@
+Delle [aziende] possono acquistare [licenze] 
+di [software] diversi da utilizzare per 
+[dispositivi] o [utenti] diversi.
+Ogni [licenza] collegata ad un software può 
+essere [specifica per dispositivi o per utenti 
+o per quantità usata].
+Studiare un sistema di gestione che consenta 
+di tenere traccia degli utilizzi del software.
+
+1. Cosa intendiamo per "azienda"
+2. Cosa intendiamo per "licenza"
+3. Cosa intendiamo per "software"
+...
+
+Cosa deve fare il nostro sistema?
+1. Registrare un'azienda
+2. L'azienda può comprare una licenza
+3. Registrare le licenze vendibili
+4. Registrare i software collegati alle licenze
+...
