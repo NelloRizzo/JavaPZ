@@ -11,8 +11,8 @@ import { Bucket } from './state/bucket';
 })
 export class AppComponent {
   title = 'Buckets';
-  b1 = new Bucket(100, "S1");
-  b2 = new Bucket(50, "S2");
+  b1 = new Bucket(100, "Secchio 100lt");
+  b2 = new Bucket(50, "Secchio 50lt");
 
   add(b: Bucket) {
     b.add(1)
