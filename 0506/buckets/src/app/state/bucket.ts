@@ -14,7 +14,7 @@ export class Bucket {
 
     get isFull(): boolean { return this.availables == 0 }
     get isEmpty(): boolean { return this.availables == this.capacity }
-    
+
     add(qty: number): void {
         qty = (this.availables <= qty) ? this.availables : qty;
         this._liters += qty
@@ -29,7 +29,8 @@ export class Bucket {
     }
 
     transfer(b: Bucket) {
-        const qty: number = this.liters <= b.availables ? this.liters : b.availables
+        const qty: number =
+            this.liters <= b.availables ? this.liters : b.availables
         this._liters -= qty
         b.add(qty)
     }
