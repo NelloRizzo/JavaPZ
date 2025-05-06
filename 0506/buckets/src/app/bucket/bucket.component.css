@@ -22,6 +22,7 @@
     border: 2px solid gray;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    cursor: url(/assets/bucket.png), grab;
 }
 
 .water {
@@ -29,4 +30,18 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: aqua;
+}
+
+.description {
+    text-align: center;
+    font-size: .5em;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.liters::after {
+    content: 'l';
+}
+.percent::after{
+    content: '%';
 }
