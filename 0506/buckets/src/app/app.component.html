@@ -1,0 +1,20 @@
+<h1>{{title}}</h1>
+<div class="buckets">
+  <div class="controls">
+    <button (click)="add(b1)" [disabled]="b1.isFull">Aggiungi &rightarrow;</button>
+    <button (click)="empty(b1)">Svuota &rightarrow;</button>
+    <button (click)="fill(b1)" [disabled]="b1.isFull">Riempi &rightarrow;</button>
+  </div>
+  <app-bucket [bucket]=b1></app-bucket>
+  <div class="controls">
+    <button (click)="transfer(b1,b2)" [disabled]="b2.isFull || b1.isEmpty">Travasa &rightarrow;</button>
+    <button (click)="transfer(b2,b1)" [disabled]="b1.isFull || b2.isEmpty">&leftarrow; Travasa</button>
+  </div>
+  <app-bucket [bucket]=b2></app-bucket>
+  <div class="controls">
+    <button (click)="add(b2)" [disabled]="b2.isFull">&leftarrow; Aggiungi</button>
+    <button (click)="empty(b2)">&leftarrow; Svuota </button>
+    <button (click)="fill(b2)" [disabled]="b2.isFull">&leftarrow; Riempi </button>
+  </div>
+</div>
+<router-outlet />

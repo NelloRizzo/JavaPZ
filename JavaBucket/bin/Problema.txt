@@ -1,0 +1,16 @@
+Scrivere la classe [Secchio] che rappresenta un 
+contenitore di liquidi che abbia come attributi:
+- [litri] (intero rappresentante la quantità di litri 
+	nel secchio)
+- [capacità] (intero rappresentante la qualità 
+	massima di litri che può contenere il secchio)
+Quando viene creato un oggetto di classe 
+Secchio il suo stato sarà vuoto (litri = 0)
+Sviluppare i seguenti metodi d'istanza:
+- <riempi()> - riempie il secchio fino all'orlo 
+	(litri = capacità)
+- <svuota()> - svuota completamente il secchio 
+	(litri = 0)
+- <travasaIn(Secchio s)> - svuota il contenuto del 
+	secchio (this) dentro ad un altro secchio s 
+	senza farlo traboccare.
