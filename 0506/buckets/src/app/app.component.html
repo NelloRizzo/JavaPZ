@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 <div class="buckets">
   <div class="controls">
-    <button (click)="add(b1)" [disabled]="b1.isFull">Aggiungi &rightarrow;</button>
+    <button (click)="add(b1)" [disabled]="b1.isFull">1 litro &rightarrow;</button>
     <button (click)="empty(b1)">Svuota &rightarrow;</button>
     <button (click)="fill(b1)" [disabled]="b1.isFull">Riempi &rightarrow;</button>
   </div>
@@ -12,7 +12,7 @@
   </div>
   <app-bucket [bucket]=b2></app-bucket>
   <div class="controls">
-    <button (click)="add(b2)" [disabled]="b2.isFull">&leftarrow; Aggiungi</button>
+    <button (click)="add(b2)" [disabled]="b2.isFull">&leftarrow; 1 litro</button>
     <button (click)="empty(b2)">&leftarrow; Svuota </button>
     <button (click)="fill(b2)" [disabled]="b2.isFull">&leftarrow; Riempi </button>
   </div>
