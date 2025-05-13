@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "a64b08d1-e07a-4c19-a88f-5231e165fa4a",
+		"name": "Login Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2190542",
+		"_collection_link": "https://blue-crater-5820.postman.co/workspace/EnterpriseLicenseManager~902bf273-0825-463b-affe-fc51c4cb68cd/collection/2190542-a64b08d1-e07a-4c19-a88f-5231e165fa4a?action=share&source=collection_link&creator=2190542"
+	},
+	"item": [
+		{
+			"name": "Protected Route",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.environment.set('token', pm.response.json().token)\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"nellorizzo@live.it\",\r\n    \"password\": \"nello\",\r\n    \"firstName\": \"Nello\",\r\n    \"lastName\": \"Rizzo\",\r\n    \"roles\": [\r\n        \"admin\",\r\n        \"users\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import corso.java.securitysample.entities.UsersRepository;
+import corso.java.securitysample.repositories.UsersRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service

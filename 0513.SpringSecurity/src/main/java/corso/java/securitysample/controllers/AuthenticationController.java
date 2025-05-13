@@ -1,5 +1,7 @@
 package corso.java.securitysample.controllers;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +24,11 @@ public class AuthenticationController {
 	@PostMapping("register")
 	public ResponseEntity<AuthenticationResponseDto> register(@RequestBody RegisterRequestDto dto) {
 		return ResponseEntity.ok(authService.register(dto));
+	}
+
+	@PostMapping("register-all")
+	public ResponseEntity<List<AuthenticationResponseDto>> registerAll(@RequestBody List<RegisterRequestDto> dto) {
+		return ResponseEntity.ok(dto.stream().map(authService::register).toList());
 	}
 
 	@PostMapping("login")
