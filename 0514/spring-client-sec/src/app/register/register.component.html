@@ -1,0 +1,28 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="email">Email</label>
+    <input id="email" formControlName="email" />
+    <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched">
+      Inserisci un'email valida.
+    </div>
+  </div>
+
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password" />
+    <div *ngIf="registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched">
+      La password deve essere di almeno 6 caratteri.
+    </div>
+  </div>
+
+  <div>
+    <label for="confirmPassword">Conferma Password</label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword" />
+    <div *ngIf="registrationForm.hasError('mismatch') && registrationForm.get('confirmPassword')?.touched">
+      Le password non coincidono.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="registrationForm.invalid">Registrati</button>
+</form>
+
